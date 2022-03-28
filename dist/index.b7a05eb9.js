@@ -514,6 +514,59 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"jeorp":[function(require,module,exports) {
+var _forums = require("./modules/forums");
+_forums.createDivs();
+
+},{"./modules/forums":"5Jk4I"}],"5Jk4I":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createDivs", ()=>createDivs
+);
+const body = document.querySelector('body');
+function createDivs() {
+    const createWrapperDiv = document.createElement('div');
+    body.appendChild(createWrapperDiv);
+    createWrapperDiv.style.border = 'solid 2px black';
+    createWrapperDiv.style.padding = '2rem';
+    function createPost() {
+        const createPostDiv = document.createElement('div');
+        createWrapperDiv.appendChild(createPostDiv);
+        createPostDiv.style.border = 'solid 2px black';
+        createPostDiv.innerText = 'Ett nytt Test';
+    }
+    createPost();
+    createPost();
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["lpcHr","jeorp"], "jeorp", "parcelRequired9c2")
 
