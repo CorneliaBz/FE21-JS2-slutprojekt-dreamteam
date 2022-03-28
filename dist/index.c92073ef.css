@@ -1,11 +1,13 @@
 #bioContainer {
   border: 2px solid green;
+  justify-content: center;
   padding: 2rem;
   display: flex;
 }
 
 #picBox {
   border: 2px solid #00f;
+  justify-content: center;
   padding: 2rem;
 }
 
@@ -39,6 +41,10 @@
   height: 30rem;
   width: 25rem;
   border: 2px solid gray;
+  display: flex;
+}
+
+#bioInfo > button {
 }
 
 /*# sourceMappingURL=index.c92073ef.css.map */

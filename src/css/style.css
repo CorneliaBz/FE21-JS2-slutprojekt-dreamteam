@@ -2,12 +2,13 @@
     display: flex;
 border: solid 2px green;
 padding: 2rem;
+justify-content: center;
 }
 
 #picBox{
     border: solid 2px blue;
     padding: 2rem;
-
+    justify-content: center;
 }
 #image{
 display: flex;
@@ -16,7 +17,6 @@ display: flex;
     width: 25rem;
     justify-content: center;
     align-items: center;
- 
 }
 #regInfo{
     border: solid 2px hotpink;
@@ -38,8 +38,11 @@ display: flex;
   
 }
 #bioInfo{
+    display: flex;
     border: solid 2px grey;
     height: 30rem;
     width: 25rem;
-  
+}
+
+#bioInfo > button{
 }
