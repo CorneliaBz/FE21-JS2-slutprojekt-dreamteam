@@ -515,28 +515,10 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"jeorp":[function(require,module,exports) {
 var _firebaseApp = require("./modules/firebaseApp");
-var _database = require("firebase/database");
-// import { UserBio } from "./modules/bio";
-const dbRef = _database.ref(_firebaseApp.db, '/user');
-class UserBio {
-    constructor(id, bio, name){
-        this.id = id;
-        this.bio = bio;
-        this.name = name;
-        this.displayUserBio();
-    }
-    //Create DOM elements for users bio info;´:
-    displayUserBio() {
-        const container = document.getElementById('bioContainer');
-        const userNameDiv = document.getElementById('userName');
-        container.id = this.id;
-        const h4 = document.createElement('h4');
-        userName.appendChild(h4);
-        h4.innerHTML = `Ditt användarnamn: ${this.name}`;
-    }
-}
+var _bio = require("./modules/bio");
+console.log(_firebaseApp.db);
 
-},{"./modules/firebaseApp":"9HHM4","firebase/database":"bpqHw"}],"9HHM4":[function(require,module,exports) {
+},{"./modules/firebaseApp":"9HHM4","./modules/bio":"dgKAY"}],"9HHM4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "db", ()=>db
@@ -15218,6 +15200,53 @@ process.umask = function() {
     return 0;
 };
 
-},{}]},["lpcHr","jeorp"], "jeorp", "parcelRequired9c2")
+},{}],"dgKAY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "User", ()=>User
+);
+parcelHelpers.export(exports, "onValue", ()=>_database.onValue
+);
+var _firebaseApp = require("./firebaseApp");
+var _database = require("firebase/database");
+class User {
+    constructor(id, bio, color, name, password){
+        this.id = id;
+        this.bio = bio;
+        this.color = color;
+        this.name = name;
+        this.password = password;
+        this.displayUserName();
+    }
+    displayUserName() {}
+}
+const dbRef = _database.ref(_firebaseApp.db, '/User');
+console.log(dbRef);
+let user = [];
+_database.onValue(dbRef, (snapshot)=>{
+    const messageData = snapshot.val();
+    console.log(messageData);
+    user = [];
+    for(const key in messageData)user.push(new User(key, messageData[key].bio, messageData[key].color, messageData[key].name, messageData[key].password));
+    console.log(messageData.id1.name);
+    const userNameDiv = document.getElementById('userName');
+    const myUserBioDiv = document.getElementById('bioInfo');
+    const regInfoDiv = document.getElementById('regInfo');
+    const picBox = document.getElementById('picBox');
+    const userBox = document.getElementById('userBox');
+    const myUser = messageData.id.name;
+    const myUserBio = messageData.id.bio;
+    const myUserColor = messageData.id.color;
+    const yourPassword = messageData.id.password;
+    userNameDiv.innerHTML = 'Användarnamn: ' + myUser;
+    myUserBioDiv.innerHTML = 'Information om användare: ' + myUserBio;
+    picBox.style.backgroundColor = myUserColor;
+    userBox.style.backgroundColor = myUserColor;
+    regInfoDiv.innerHTML = 'Ditt lösenord är: ' + yourPassword;
+    console.log(myUserColor);
+});
+console.log(user);
+
+},{"./firebaseApp":"9HHM4","firebase/database":"bpqHw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lpcHr","jeorp"], "jeorp", "parcelRequired9c2")
 
 //# sourceMappingURL=index.b7a05eb9.js.map
