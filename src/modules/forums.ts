@@ -24,6 +24,10 @@ function createDivs(products){
         createWrapperDiv.appendChild(createPostDiv);
         createPostDiv.style.border ='solid 2px black';
         createPostDiv.innerText = products[key].message;
+        const deleteButton = document.createElement('button');
+        createPostDiv.appendChild(deleteButton);
+        deleteButton.innerText = 'Ta bort';
+        deleteButton.style.margin = '1rem';
     }
 };
 
