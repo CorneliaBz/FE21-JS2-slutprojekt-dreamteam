@@ -521,33 +521,51 @@ console.log(_firebaseapp.db);
 const dbRef = _database.ref(_firebaseapp.db, '/User');
 let user = [];
 _database.onValue(dbRef, (snapshot)=>{
-    const messageData = snapshot.val();
-    console.log(messageData);
+    const userData = snapshot.val();
+    console.log(userData);
     user = [];
-    for(const key in messageData)user.push(new _user.User(key, messageData[key].bio, messageData[key].color, messageData[key].name, messageData[key].password));
-});
-//Skapar användare
-document.querySelector('#signupButton').addEventListener('click', (e)=>{
-    e.preventDefault();
-    const name = document.querySelector('#newUserName');
-    const password = document.querySelector('#newUserPassword');
-    const confirmPassword = document.querySelector('#confirmNewUserPassword');
-    const message = document.querySelector('#loginMessage');
-    console.log(name.value, password.value);
-    //if-statement som kollar om lösenorden stämmer överrens
-    if (password.value == confirmPassword.value) {
-        const UserToAdd = {
-            bio: '',
-            color: '',
-            name: name.value,
-            password: password.value
-        };
-        const newKey = _database.push(dbRef).key;
-        const newUser = {};
-        newUser[newKey] = UserToAdd;
-        _database.update(dbRef, newUser);
-        message.innerText = 'New user created, you can now sign in';
-    } else message.innerText = 'Password not matching';
+    for(const key in userData)user.push(new _user.User(key, userData[key].bio, userData[key].color, userData[key].name, userData[key].password));
+    //Koden för att skapa en ny User
+    function createUser() {
+        //Hämtar inputElement
+        const name = document.querySelector('#newUserName');
+        const password = document.querySelector('#newUserPassword');
+        const confirmPassword = document.querySelector('#confirmNewUserPassword');
+        //Felmeddelande
+        const message = document.querySelector('#loginMessage');
+        //Variabler som ska jämföras med varandra
+        const newUsername = name.value;
+        const userNames = Object.values(userData);
+        let addUser = true;
+        for (const userName of userNames)//Kollar om newUsername finns i databasen databasen som userName.name. 
+        //Om namnet redan finns kan vi inte skapa användare då addUser = false.
+        if (newUsername === userName.name) {
+            addUser = false;
+            message.innerText = 'User already exsists';
+            break;
+        }
+        //Om newUsername och userName.name inte är samma skapas en ny användare.
+        //Här kollas även om lösenordet matchar varandra.
+        if (addUser && password.value == confirmPassword.value) {
+            const UserToAdd = {
+                bio: '',
+                color: '',
+                name: name.value,
+                password: password.value
+            };
+            const newKey = _database.push(dbRef).key;
+            const newUser = {};
+            newUser[newKey] = UserToAdd;
+            _database.update(dbRef, newUser);
+            message.innerText = 'New user created, you can now sign in';
+        //Felmeddelande ifall lösenorden inte är samma.
+        } else if (addUser && password.value != confirmPassword.value) message.innerText = 'Password not matching';
+    }
+    //Knapp som kallar på createUser();
+    document.querySelector('#signupButton').addEventListener('click', (e)=>{
+        e.preventDefault();
+        createUser();
+    });
 });
 
 },{"firebase/database":"bpqHw","./modules/firebaseapp":"aqtxR","./modules/User":"cRxRb"}],"bpqHw":[function(require,module,exports) {
