@@ -27,7 +27,7 @@ onValue(dbRef, snapshot => {
         const password: HTMLInputElement = document.querySelector('#newUserPassword');
         const confirmPassword: HTMLInputElement = document.querySelector('#confirmNewUserPassword');
         //Felmeddelande
-        const message: HTMLHeadElement = document.querySelector('#loginMessage');
+        const regMessage: HTMLHeadElement = document.querySelector('#regMessage');
         //Variabler som ska jämföras med varandra
         const newUsername = name.value;
         const userNames = Object.values(userData);
@@ -39,7 +39,7 @@ onValue(dbRef, snapshot => {
             //Om namnet redan finns kan vi inte skapa användare då addUser = false.
             if(newUsername === userName.name){
                 addUser = false;
-                message.innerText = 'User already exsists';
+                regMessage.innerText = 'Användaren finns redan';
                 break;
             }
         }
@@ -58,10 +58,10 @@ onValue(dbRef, snapshot => {
             newUser[newKey] = UserToAdd;
 
             update(dbRef, newUser);
-            message.innerText = 'New user created, you can now sign in';
+            regMessage.innerText = 'Ny användare skapad, du kan logga in';
         //Felmeddelande ifall lösenorden inte är samma.
         }else if(addUser && password.value != confirmPassword.value){
-            message.innerText = 'Password not matching';
+            regMessage.innerText = 'Password not matching';
         }
     }
 
