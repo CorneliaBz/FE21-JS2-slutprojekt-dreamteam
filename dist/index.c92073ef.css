@@ -1,3 +1,61 @@
+#bioContainer {
+  border: 2px solid gray;
+  justify-content: center;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+}
 
+#bioContainer > #picBox {
+  display: inline-block;
+}
+
+#picBox {
+  border: 2px solid gray;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#imageAndUsername {
+  height: 20rem;
+  width: 25rem;
+  border: 2px solid gray;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#regInfo {
+  height: 20rem;
+  width: 25rem;
+  border: 2px solid gray;
+}
+
+#userBox {
+  width: 30rem;
+  border: 2px solid gray;
+  padding: 2rem;
+}
+
+#bioContainer > #userBox {
+  display: inline-block;
+}
+
+#bioInfo {
+  height: 20rem;
+  width: 25rem;
+  border: 2px solid gray;
+  display: flex;
+}
+
+#theEditButton {
+  height: 5rem;
+  width: 25rem;
+  border: 2px solid gray;
+}
+
+#editBtn {
+  height: 2rem;
+}
 
 /*# sourceMappingURL=index.c92073ef.css.map */

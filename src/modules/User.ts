@@ -7,11 +7,14 @@ export class User {
         public readonly bio: string,
         public readonly color: string,
         public readonly name: string,
-        public readonly password: string
+        public readonly password: string,
+        public readonly theTime: string
 
     ) {
         this.displayUser();
         this.checkUser();
+        // this.userBio();
+        // this.updateUser()
     }
     //Display alla egenskaper som användaren har
     private displayUser(): void {
@@ -52,6 +55,7 @@ export class User {
     //Check if user exsist and password is correct
     public checkUser(): any {
         document.querySelector('#loginButton').addEventListener('click', e => {
+
             e.preventDefault();
             const name: HTMLInputElement = document.querySelector('#userName');
             const password: HTMLInputElement = document.querySelector('#userPassword');
@@ -62,6 +66,15 @@ export class User {
             if (this.name === name.value && this.password === password.value) {
                 const forms: HTMLDivElement = document.querySelector('#forms');
                 forms.style.display = 'none';
+                const bioContainer = document.getElementById('bioContainer');
+                bioContainer.style.display = "block";
+
+                this.userBio();                
+
+                // const userNameDiv = document.getElementById('userNameDiv');
+                // userNameDiv.innerHTML = name.value + 'checkUser'
+
+    
                 return alert('welcome to le page');
             } else if (this.name != name.value && this.password == password.value) {
                 message.innerText = 'Wrong unsername';
@@ -70,6 +83,53 @@ export class User {
             } else if (this.name != name.value && this.password != password.value) {
                 message.innerText = 'User does not exsist';
             }
+            
         })
+    }
+    public userBio():any{
+        // const userNameDiv = document.getElementById('userNameDiv');
+
+        const myUserBioDiv:any = document.getElementById('bioInfo')
+        const regInfoDiv:any = document.getElementById('regInfo')
+        const picBox:any = document.getElementById('picBox')
+        const userBox:any = document.getElementById('userBox')
+        const editBtnDiv:any = document.getElementById('theEditButton')
+
+        const userNameDiv:any = document.getElementById('userNameDiv')
+
+        const theId = this.id
+        console.log(theId)
+
+        const myUser = this.name
+        const myUserBio = this.bio
+        const myUserColor = this.color
+        const yourPassword = this.password
+
+        userNameDiv.innerHTML = 'Användarnamn: '  + myUser
+        myUserBioDiv.innerHTML = 'Information om användare: '+ myUserBio
+        picBox.style.color  = myUserColor
+        userBox.style.color  = myUserColor
+
+        console.log(this.bio)
+
+        regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
+
+        const editBtn:any = document.createElement('button');
+        editBtnDiv.appendChild(editBtn)
+
+        editBtn.innerHTML= 'Ändra din information';
+        editBtn.setAttribute('id', this.id)
+        editBtn.setAttribute('class','editKnappen')
+
+        
+
+        editBtn.addEventListener('click' , e =>{
+            e.preventDefault
+            prompt ('Skriv in din info')
+        })
+
+    }
+    updateUser(){
+
     }
 }

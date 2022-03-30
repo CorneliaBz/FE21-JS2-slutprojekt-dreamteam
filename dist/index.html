@@ -10,6 +10,58 @@
     <title>Slutprojekt</title>
 </head>
 <body>
-    <p>Lina och Cornelia är BÄST!</p>
+    <a href="/bio.html">BioBenny</a>
+    <section id="forms">
+        <form id="loginForm">
+            <input type="text" placeholder="name" id="userName">
+            <input type="password" placeholder="password" id="userPassword">
+            <button type="button" id="loginButton">LET ME IN</button>
+        </form>
+
+        <form id="registerForm">
+            <input type="text" placeholder="name" id="newUserName">
+            <input type="password" placeholder="password" id="newUserPassword">
+            <input type="password" placeholder="password" id="confirmNewUserPassword">
+            <button type="button" id="signupButton">SIGN UP</button>
+        </form>
+        <h4 id="loginMessage">
+    </h4></section>
+
+    <div id="bioContainer">
+        <div id="picBox">
+            <div id="imageAndUsername">
+                <p id="userNameDiv"></p>
+                <p id="userImgDiv">Hit med en bild kanske också</p>
+            </div>
+            <div id="regInfo">Reg datum och Antal posts</div>
+        </div>
+    
+        <div id="userBox">
+            <!-- <div id="userNameDiv">Username</div> -->
+            <div id="bioInfo">All info från</div>
+
+            <div id="theEditButton"></div>
+                <!-- <p><button id="editBtn">Edit knapp</button> -->
+                <p></p>
+            </div> 
+
+            <div id="editDiv">
+                <form>
+                <label for="editUserName">Nytt användarnamn</label>
+                <input type="text" placeholder="Berit" id="editUserName">
+                <label for="editColor">Ändra färg</label>
+                <select name="selectColor" id="editColor">
+                    <option value="1">Grön</option>
+                    <option value="1">Röd</option>
+                    <option value="1">Blå</option>
+                    <option value="1">Hotpink</option>
+                </select>
+                
+            </form>
+    
+            </div>
+    </div>
+
+    
 </body>
 </html>

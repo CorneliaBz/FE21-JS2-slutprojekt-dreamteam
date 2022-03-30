@@ -9,6 +9,7 @@
     <title>Slutprojekt</title>
 </head>
 <body>
+    <a href="/src/bio.html">BioBenny</a>
     <section id="forms">
         <form id="loginForm">
             <input type="text" placeholder="name" id="userName">
@@ -24,5 +25,42 @@
         </form>
         <h4 id="loginMessage"></h2>
     </section>
+
+    <div id="bioContainer">
+        <div id="picBox">
+            <div id="imageAndUsername">
+                <p id="userNameDiv"></p>
+                <p id="userImgDiv">Hit med en bild kanske också</p>
+            </div>
+            <div id="regInfo">Reg datum och Antal posts</div>
+        </div>
+    
+        <div id="userBox">
+            <!-- <div id="userNameDiv">Username</div> -->
+            <div id="bioInfo">All info från</div>
+
+            <div id="theEditButton"></div>
+                <!-- <p><button id="editBtn">Edit knapp</button> -->
+                </p>
+            </div> 
+
+            <div id="editDiv">
+                <form>
+                <label for="editUserName">Nytt användarnamn</label>
+                <input type="text" placeholder="Berit" id="editUserName">
+                <label for="editColor">Ändra färg</label>
+                <select name="selectColor" id="editColor">
+                    <option value="1">Grön</option>
+                    <option value="1">Röd</option>
+                    <option value="1">Blå</option>
+                    <option value="1">Hotpink</option>
+                </select>
+                
+            </form>
+    
+            </div>
+    </div>
+
+    
 </body>
 </html>

@@ -1,6 +1,11 @@
 import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User } from "./modules/User";
+// import {UserBio} from "./modules/bio"
+
+
+const bioContainer = document.getElementById('bioContainer');
+// bioContainer.style.display = "none"
 
 console.log(db);
 const dbRef = ref(db, '/User');
@@ -18,8 +23,10 @@ onValue(dbRef, snapshot=>{
             messageData[key].color,
             messageData[key].name,
             messageData[key].password,
+            messageData[key].theTime
         ))
     }
+
 })
 
 //Skapar användare
