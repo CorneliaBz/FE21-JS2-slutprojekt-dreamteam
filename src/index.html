@@ -9,8 +9,24 @@
     <title>Slutprojekt</title>
 </head>
 <body>
-    <p>Lina och Cornelia är BÄST!</p>
-    <input type="text" size="40rem 4rem">
-    <button>Add</button>
+    <!-- Login och regestrerings formulär -->
+    <section id="forms">
+        <form class="twoForms" id="loginForm">
+            <h2>Logga in</h2>
+            <input type="text" placeholder="Användarnamn" id="userName" required>
+            <input type="password" placeholder="Lösenord" id="userPassword" required>
+            <button type="button" id="loginButton">LET ME IN</button>
+            <h4 id="loginMessage"></h2>
+        </form>
+
+        <form class="twoForms" id="registerForm">
+            <h2>Registrering</h2>
+            <input type="text" placeholder="Användarnamn" id="newUserName" required>
+            <input type="password" placeholder="Lösenord" id="newUserPassword" required>
+            <input type="password" placeholder="Bekräfta Lösenord" id="confirmNewUserPassword" required>
+            <button type="button" id="signupButton">SIGN UP</button>
+            <h4 id="regMessage"></h2>
+        </form>
+    </section>
 </body>
 </html>

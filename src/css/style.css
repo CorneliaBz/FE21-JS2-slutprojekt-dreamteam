@@ -1,0 +1,110 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1d253b;
+}
+
+
+/* START Styling till login och regestrerings formulär */
+
+#forms{
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #1d253b;
+    /* background-image: url(https://www.itl.cat/pngfile/big/151-1515561_conversation-speech-bubbles.png); */
+    background-image: url(https://www.nawpic.com/media/2020/minimalist-nawpic-7.jpg);
+    background-size: cover;
+    opacity: 90%;
+    border-radius: 20px;
+
+    filter: drop-shadow(10px 10px 4px #161a25);
+
+    width: 60rem;
+    height: 30rem;
+}
+
+#forms h2{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fdd5d6;
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #238eaf, 1px 1px 0 #238eaf;
+}
+
+#forms h4{
+    font-weight: bold;
+    text-align: center;
+    color:#e10279;
+    background: radial-gradient(circle, rgba(253,213,214,0.8) 0%, rgba(253,213,214,0) 100%);
+}
+
+#loginForm, #registerForm{
+    width: 50%;
+    padding: 10px;
+    opacity: 50%;
+}
+
+#loginForm:hover, #registerForm:hover{
+    opacity: 100%;
+    transition: all 0.4s ease-in-out;
+}
+
+.twoForms input[type=text], .twoForms input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 3px solid white;
+}
+
+.twoForms input[type=text]:focus, .twoForms input[type=password]:focus{
+    outline:none;
+    border: 3px solid #e10279;
+}
+
+.twoForms input{
+    width: 100%;
+}
+
+.twoForms button{
+    background-color: #e10279;
+    border: solid transparent 5px;
+    border-radius: 100px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.twoForms button:hover{
+    background-color: #35ccfa;
+    transform: translate(-20%, -20%);
+    transition: all 0.4s ease-in-out;
+}
+
+#loginButton{
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    margin-right: -50%;
+    transform: translate(-20%, -20%);
+}
+
+#signupButton{
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    margin-right: -50%;
+    transform: translate(-20%, -20%);
+}
+
+/* END Styling till login och regestrerings formulär */
