@@ -545,12 +545,17 @@ document.querySelector('#signupButton').addEventListener('click', (e)=>{
     console.log(name.value, password.value);
     //if-statement som kollar om lösenorden stämmer överrens
     if (password.value == confirmPassword.value) {
+        const thisDate = new Date();
+        const time = thisDate.getHours();
+        const thisTime = thisDate + "";
         const UserToAdd = {
             bio: '',
             color: '',
             name: name.value,
-            password: password.value
+            password: password.value,
+            theTime: thisTime
         };
+        console.log(thisTime);
         const newKey = _database.push(dbRef).key;
         const newUser = {};
         newUser[newKey] = UserToAdd;
@@ -15329,6 +15334,7 @@ class User {
         const regInfoDiv = document.getElementById('regInfo');
         const picBox1 = document.getElementById('picBox');
         const userBox = document.getElementById('userBox');
+        const userRegDate = document.getElementById('userRegDate');
         const userNameDiv = document.getElementById('userNameDiv');
         const theId = this.id;
         console.log(theId);
@@ -15336,18 +15342,21 @@ class User {
         const myUserBio = this.bio;
         const myUserColor = this.color;
         const yourPassword = this.password;
-        userNameDiv.innerHTML = 'Användarnamn: ' + myUser;
+        const myUserRegDate = this.theTime;
+        userNameDiv.innerHTML = `Användarnamn: <br>
+        ${myUser}`;
+        userRegDate.innerHTML = `Tid för registrering: <br> ${myUserRegDate}`;
         myUserBioDiv.innerHTML = 'Information om användare: ' + myUserBio;
         picBox1.style.color = myUserColor;
         userBox.style.color = myUserColor;
         console.log(this.bio);
-        regInfoDiv.innerHTML = 'Ditt lösenord är: ' + yourPassword;
+        // regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
+        // 'Ditt lösenord är: '+ yourPassword
         //Edit button bio sidan
-        const editBtnDiv = document.getElementById('theEditButtonDiv');
         const editBtn = document.getElementById('editBtn');
         // editBtnDiv.appendChild(editBtn)
         // editBtn.innerHTML= 'Ändra din information';
-        editBtn.setAttribute('id', this.id);
+        // editBtn.setAttribute('id', this.id)
         editBtn.setAttribute('class', 'editKnappen');
         editBtn.addEventListener('click', (e)=>{
             e.preventDefault;
@@ -15414,7 +15423,7 @@ class User {
                     color: newColor,
                     bio: newBio,
                     password: newPassword,
-                    theTime: 'Ny tid3'
+                    theTime: this.theTime
                 };
                 console.log(updateAllObject);
                 const updateAll = {};

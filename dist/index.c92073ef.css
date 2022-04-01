@@ -16,10 +16,12 @@
   padding: 2rem;
 }
 
-#imageAndUsername {
+#UserNameAndReg {
   height: 20rem;
   width: 25rem;
+  text-align: center;
   border: 2px solid gray;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: larger;

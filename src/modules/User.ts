@@ -99,7 +99,7 @@ export class User {
         const regInfoDiv:any = document.getElementById('regInfo')
         const picBox:any = document.getElementById('picBox')
         const userBox:any = document.getElementById('userBox')
-
+        const userRegDate:any = document.getElementById('userRegDate')
         const userNameDiv:any = document.getElementById('userNameDiv')
 
         const theId = this.id
@@ -109,23 +109,25 @@ export class User {
         const myUserBio = this.bio
         const myUserColor = this.color
         const yourPassword = this.password
+        const myUserRegDate = this.theTime
 
-        userNameDiv.innerHTML = 'Användarnamn: '  + myUser
+        userNameDiv.innerHTML = `Användarnamn: <br>
+        ${myUser}`
+        userRegDate.innerHTML = `Tid för registrering: <br> ${myUserRegDate}`
         myUserBioDiv.innerHTML = 'Information om användare: '+ myUserBio
         picBox.style.color  = myUserColor
         userBox.style.color  = myUserColor
 
         console.log(this.bio)
 
-        regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
-
+        // regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
+        // 'Ditt lösenord är: '+ yourPassword
         //Edit button bio sidan
-        const editBtnDiv:any = document.getElementById('theEditButtonDiv')
         const editBtn:any = document.getElementById('editBtn');
         // editBtnDiv.appendChild(editBtn)
 
         // editBtn.innerHTML= 'Ändra din information';
-        editBtn.setAttribute('id', this.id)
+        // editBtn.setAttribute('id', this.id)
         editBtn.setAttribute('class','editKnappen')
 
         
@@ -230,7 +232,7 @@ export class User {
                 color: newColor,
                 bio: newBio,
                 password: newPassword,
-                theTime: 'Ny tid3'
+                theTime: this.theTime
     
             }
     

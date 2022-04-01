@@ -54,12 +54,18 @@ document.querySelector('#signupButton').addEventListener('click', e=>{
     console.log(name.value, password.value)
     //if-statement som kollar om lösenorden stämmer överrens
     if(password.value == confirmPassword.value){
+        const thisDate = new Date();
+        const time = thisDate.getHours();
+        const thisTime = thisDate + ""
+
         const UserToAdd = {
             bio: '',
             color: '',
             name: name.value,
             password: password.value,
+            theTime: thisTime
         }
+        console.log(thisTime)
 
         const newKey:string = push(dbRef).key;
         const newUser = {};
