@@ -5,7 +5,12 @@ import { User } from "./modules/User";
 
 
 const bioContainer = document.getElementById('bioContainer');
-// bioContainer.style.display = "none"
+bioContainer.style.display = "none"
+
+const editDiv = document.getElementById('editDiv')
+editDiv.style.display = "none"
+
+
 
 console.log(db);
 const dbRef = ref(db, '/User');
@@ -13,8 +18,15 @@ let user:User[] = [];
 
 onValue(dbRef, snapshot=>{
     const messageData = snapshot.val();
-    console.log(messageData); 
 
+//     // const userNamesTest = Object.values(messageData)
+
+//     // for(let i = 0; i<userNamesTest.length; i++ ){
+//     //     console.log(userNamesTest[i].name)
+//     // }
+
+
+// console.log(userNamesTest[4])
     user = [];
     for(const key in messageData){
         user.push(new User(
@@ -28,6 +40,7 @@ onValue(dbRef, snapshot=>{
     }
 
 })
+
 
 //Skapar användare
 document.querySelector('#signupButton').addEventListener('click', e=>{

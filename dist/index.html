@@ -40,22 +40,40 @@
             <!-- <div id="userNameDiv">Username</div> -->
             <div id="bioInfo">All info från</div>
 
-            <div id="theEditButton"></div>
+            <div id="theEditButtonDiv">
+                <button id="editBtn">Ändra din information</button>
+            </div>
                 <!-- <p><button id="editBtn">Edit knapp</button> -->
                 <p></p>
             </div> 
 
             <div id="editDiv">
                 <form>
+                    <p>Hallå kompis, här kan du ändra din info</p>
                 <label for="editUserName">Nytt användarnamn</label>
-                <input type="text" placeholder="Berit" id="editUserName">
+                <input type="text" id="editUserName">
+                <label for="editPassword">Ändra ditt lösenord: </label>
+                <input type="password" id="editPassword">
+                <input type="password" placeholder="password" id="confirmChangePassword">
                 <label for="editColor">Ändra färg</label>
                 <select name="selectColor" id="editColor">
                     <option value="1">Grön</option>
-                    <option value="1">Röd</option>
-                    <option value="1">Blå</option>
-                    <option value="1">Hotpink</option>
+                    <option value="2">Röd</option>
+                    <option value="3">Blå</option>
+                    <option value="4">Ljusblå</option>
+                    <option value="5">Grå</option>
+                    <option value="6">Svart</option>
+                    <option value="7">Lila</option>
+
                 </select>
+                <br>
+                <label for="bioInformation">Vill du ändra din info så skriver du här:</label>
+                <textarea name="bioInformation" id="bioInformation" cols="50" rows="8"></textarea>
+                
+                <button id="editButton">Klicka här för att bekräfta</button>
+                <br>
+                <label>Klicka här för att ta bort ditt konto, OBS, Går inte att ångra!!</label>
+                <button id="deleteUser">Klicka här för att ta bort ditt konto</button>
                 
             </form>
     

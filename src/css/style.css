@@ -25,6 +25,8 @@ display: flex;
     width: 25rem;
     justify-content: center;
     align-items: center;
+    font-size: larger;
+    font-weight: bolder;
 }
 #regInfo{
     border: solid 2px grey;
@@ -61,4 +63,8 @@ display: flex;
 
 #editBtn{
     height: 2rem;
+}
+
+#deleteUser{
+    margin-top: 5rem;
 }

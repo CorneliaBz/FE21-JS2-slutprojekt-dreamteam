@@ -1,5 +1,5 @@
 import { db } from "./firebaseapp";
-import { ref, remove, update } from "firebase/database";
+import { ref, remove, update, push } from "firebase/database";
 
 export class User {
     constructor(
@@ -13,8 +13,8 @@ export class User {
     ) {
         this.displayUser();
         this.checkUser();
-        // this.userBio();
-        // this.updateUser()
+        this.userBio();
+        this.updateUser()
     }
     //Display alla egenskaper som användaren har
     private displayUser(): void {
@@ -75,7 +75,7 @@ export class User {
                 // userNameDiv.innerHTML = name.value + 'checkUser'
 
     
-                return alert('welcome to le page');
+                // return alert('welcome to le page');
             } else if (this.name != name.value && this.password == password.value) {
                 message.innerText = 'Wrong unsername';
             } else if (this.name === name.value && this.password != password.value) {
@@ -86,6 +86,12 @@ export class User {
             
         })
     }
+
+
+
+
+
+    //Skriver in  användarinformationen:
     public userBio():any{
         // const userNameDiv = document.getElementById('userNameDiv');
 
@@ -93,7 +99,6 @@ export class User {
         const regInfoDiv:any = document.getElementById('regInfo')
         const picBox:any = document.getElementById('picBox')
         const userBox:any = document.getElementById('userBox')
-        const editBtnDiv:any = document.getElementById('theEditButton')
 
         const userNameDiv:any = document.getElementById('userNameDiv')
 
@@ -114,10 +119,12 @@ export class User {
 
         regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
 
-        const editBtn:any = document.createElement('button');
-        editBtnDiv.appendChild(editBtn)
+        //Edit button bio sidan
+        const editBtnDiv:any = document.getElementById('theEditButtonDiv')
+        const editBtn:any = document.getElementById('editBtn');
+        // editBtnDiv.appendChild(editBtn)
 
-        editBtn.innerHTML= 'Ändra din information';
+        // editBtn.innerHTML= 'Ändra din information';
         editBtn.setAttribute('id', this.id)
         editBtn.setAttribute('class','editKnappen')
 
@@ -125,11 +132,143 @@ export class User {
 
         editBtn.addEventListener('click' , e =>{
             e.preventDefault
-            prompt ('Skriv in din info')
+            const bioContainer = document.getElementById('userBox');
+            userBox.style.display = "none";
+            const picBox = document.getElementById('picBox')
+            picBox.style.display = 'none'
+
+            const editDiv = document.getElementById('editDiv')            
+            editDiv.style.display = 'block'
+            this.updateUser();
+
         })
 
     }
-    updateUser(){
 
+
+
+
+
+
+    //Möjlighet att ändra användarinformation
+    public updateUser(){
+        const removeBtn = document.getElementById('deleteUser')
+        removeBtn.addEventListener('click', () => {
+            alert ('Detta går inte att göra ogjort! Vänligen skapa en ny användare om du vill fortsätta göra inlägg')
+            const deleteTheUser = ref(db, '/User/' + this.id);
+            remove(deleteTheUser);
+        })
+
+        const theEditBtn = document.getElementById('editButton');
+        const newNickInput: any = document.getElementById('editUserName');
+        const newColorInput:any = document.getElementById('editColor');
+        const newPasswordInput:any = document.getElementById('editPassword');
+        const newBioInput:any = document.getElementById('bioInformation');
+        const newPasswordConfirmInput:any = document.getElementById('confirmChangePassword')
+
+
+        // newNickInput.setAttribute('value', this.name);
+        // newColorInput.setAttribute('value', this.color);
+        // newPasswordInput.setAttribute('value', this.password)
+        // newBioInput.setAttribute('value', this.bio)
+        // newPasswordConfirmInput.setAttribute('value', this.password)
+       
+        // console.log(newBioInput)
+
+        console.log(this.bio)
+        
+        // const newNick = newNickInput.value
+        // const newColor = newColorInput.value
+        // const newPassword = newPasswordInput.value;
+        // const newPasswordConfirm = newPasswordConfirmInput.value
+        // const newBio = newBioInput.value
+
+        // alert ('updated ffs')
+        
+                    
+        // console.log(newBio)
+
+        const id = this.id
+        
+        // const updateAllObject = {
+
+        //     name: newNick,
+        //     color: 'greeeen',
+        //     bio: 'newBio',
+        //     password: newPassword,
+        //     theTime: 'Ny tiddd'
+
+        // }
+
+        // console.log(updateAllObject)
+
+
+
+    //Editbutton på ändra information sidan
+        theEditBtn.addEventListener('click', e =>{
+            e.preventDefault;
+
+            const newNick = newNickInput.value
+            const newColor = newColorInput.value
+            const newPassword = newPasswordInput.value;
+            const newPasswordConfirm = newPasswordConfirmInput.value
+            const newBio = newBioInput.value
+    
+            if(newPassword != newPasswordConfirm){
+                alert ('vafan gör du, skriv samma på båda!!!')
+            }
+            else{
+            // alert ('updated ffs')
+            
+                        
+
+            const id = this.id
+            
+            const updateAllObject = {
+
+                name: newNick,
+                color: newColor,
+                bio: newBio,
+                password: newPassword,
+                theTime: 'Ny tid3'
+    
+            }
+    
+            console.log(updateAllObject)
+            const updateAll = {};
+            updateAll[id+'/']= updateAllObject
+
+            const nameToUpdate  = {}
+            nameToUpdate[id+'/name'] = newNick
+
+
+            const dbRefUpdate = ref(db, '/User/');
+
+            update(dbRefUpdate, updateAll);
+
+            console.log(dbRefUpdate)
+            console.log(updateAll)
+
+    
+        }
+
+        })
     }
 }
+
+// const msgRef = ref(db, '/User/' + this.id);
+// remove(msgRef);
+
+
+// const myUserInput: any = document.getElementById('whosYourDaddy');
+// const myName = myUserInput.value
+
+// const thisDate = new Date();
+// const time = thisDate.getHours();
+// const thisTime = thisDate + ""
+
+// const taskToAdd = {
+//     userName: myName,
+//     task: test,
+//     theTime: thisTime
+// }

@@ -519,13 +519,19 @@ var _firebaseapp = require("./modules/firebaseapp");
 var _user = require("./modules/User");
 // import {UserBio} from "./modules/bio"
 const bioContainer = document.getElementById('bioContainer');
-// bioContainer.style.display = "none"
+bioContainer.style.display = "none";
+const editDiv = document.getElementById('editDiv');
+editDiv.style.display = "none";
 console.log(_firebaseapp.db);
 const dbRef = _database.ref(_firebaseapp.db, '/User');
 let user = [];
 _database.onValue(dbRef, (snapshot)=>{
     const messageData = snapshot.val();
-    console.log(messageData);
+    //     // const userNamesTest = Object.values(messageData)
+    //     // for(let i = 0; i<userNamesTest.length; i++ ){
+    //     //     console.log(userNamesTest[i].name)
+    //     // }
+    // console.log(userNamesTest[4])
     user = [];
     for(const key in messageData)user.push(new _user.User(key, messageData[key].bio, messageData[key].color, messageData[key].name, messageData[key].password, messageData[key].theTime));
 });
@@ -15239,7 +15245,19 @@ var version = "9.6.10";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "User", ()=>User
-);
+) // const msgRef = ref(db, '/User/' + this.id);
+ // remove(msgRef);
+ // const myUserInput: any = document.getElementById('whosYourDaddy');
+ // const myName = myUserInput.value
+ // const thisDate = new Date();
+ // const time = thisDate.getHours();
+ // const thisTime = thisDate + ""
+ // const taskToAdd = {
+ //     userName: myName,
+ //     task: test,
+ //     theTime: thisTime
+ // }
+;
 var _firebaseapp = require("./firebaseapp");
 var _database = require("firebase/database");
 class User {
@@ -15252,8 +15270,8 @@ class User {
         this.theTime = theTime;
         this.displayUser();
         this.checkUser();
-    // this.userBio();
-    // this.updateUser()
+        this.userBio();
+        this.updateUser();
     }
     //Display alla egenskaper som användaren har
     displayUser() {
@@ -15296,21 +15314,21 @@ class User {
                 const bioContainer = document.getElementById('bioContainer');
                 bioContainer.style.display = "block";
                 this.userBio();
-                // const userNameDiv = document.getElementById('userNameDiv');
-                // userNameDiv.innerHTML = name.value + 'checkUser'
-                return alert('welcome to le page');
+            // const userNameDiv = document.getElementById('userNameDiv');
+            // userNameDiv.innerHTML = name.value + 'checkUser'
+            // return alert('welcome to le page');
             } else if (this.name != name.value && this.password == password.value) message.innerText = 'Wrong unsername';
             else if (this.name === name.value && this.password != password.value) message.innerText = 'Wrong password';
             else if (this.name != name.value && this.password != password.value) message.innerText = 'User does not exsist';
         });
     }
+    //Skriver in  användarinformationen:
     userBio() {
         // const userNameDiv = document.getElementById('userNameDiv');
         const myUserBioDiv = document.getElementById('bioInfo');
         const regInfoDiv = document.getElementById('regInfo');
-        const picBox = document.getElementById('picBox');
+        const picBox1 = document.getElementById('picBox');
         const userBox = document.getElementById('userBox');
-        const editBtnDiv = document.getElementById('theEditButton');
         const userNameDiv = document.getElementById('userNameDiv');
         const theId = this.id;
         console.log(theId);
@@ -15320,21 +15338,96 @@ class User {
         const yourPassword = this.password;
         userNameDiv.innerHTML = 'Användarnamn: ' + myUser;
         myUserBioDiv.innerHTML = 'Information om användare: ' + myUserBio;
-        picBox.style.color = myUserColor;
+        picBox1.style.color = myUserColor;
         userBox.style.color = myUserColor;
         console.log(this.bio);
         regInfoDiv.innerHTML = 'Ditt lösenord är: ' + yourPassword;
-        const editBtn = document.createElement('button');
-        editBtnDiv.appendChild(editBtn);
-        editBtn.innerHTML = 'Ändra din information';
+        //Edit button bio sidan
+        const editBtnDiv = document.getElementById('theEditButtonDiv');
+        const editBtn = document.getElementById('editBtn');
+        // editBtnDiv.appendChild(editBtn)
+        // editBtn.innerHTML= 'Ändra din information';
         editBtn.setAttribute('id', this.id);
         editBtn.setAttribute('class', 'editKnappen');
         editBtn.addEventListener('click', (e)=>{
             e.preventDefault;
-            prompt('Skriv in din info');
+            const bioContainer = document.getElementById('userBox');
+            userBox.style.display = "none";
+            const picBox = document.getElementById('picBox');
+            picBox.style.display = 'none';
+            const editDiv = document.getElementById('editDiv');
+            editDiv.style.display = 'block';
+            this.updateUser();
         });
     }
-    updateUser() {}
+    //Möjlighet att ändra användarinformation
+    updateUser() {
+        const removeBtn = document.getElementById('deleteUser');
+        removeBtn.addEventListener('click', ()=>{
+            alert('Detta går inte att göra ogjort! Vänligen skapa en ny användare om du vill fortsätta göra inlägg');
+            const deleteTheUser = _database.ref(_firebaseapp.db, '/User/' + this.id);
+            _database.remove(deleteTheUser);
+        });
+        const theEditBtn = document.getElementById('editButton');
+        const newNickInput = document.getElementById('editUserName');
+        const newColorInput = document.getElementById('editColor');
+        const newPasswordInput = document.getElementById('editPassword');
+        const newBioInput = document.getElementById('bioInformation');
+        const newPasswordConfirmInput = document.getElementById('confirmChangePassword');
+        // newNickInput.setAttribute('value', this.name);
+        // newColorInput.setAttribute('value', this.color);
+        // newPasswordInput.setAttribute('value', this.password)
+        // newBioInput.setAttribute('value', this.bio)
+        // newPasswordConfirmInput.setAttribute('value', this.password)
+        // console.log(newBioInput)
+        console.log(this.bio);
+        // const newNick = newNickInput.value
+        // const newColor = newColorInput.value
+        // const newPassword = newPasswordInput.value;
+        // const newPasswordConfirm = newPasswordConfirmInput.value
+        // const newBio = newBioInput.value
+        // alert ('updated ffs')
+        // console.log(newBio)
+        const id1 = this.id;
+        // const updateAllObject = {
+        //     name: newNick,
+        //     color: 'greeeen',
+        //     bio: 'newBio',
+        //     password: newPassword,
+        //     theTime: 'Ny tiddd'
+        // }
+        // console.log(updateAllObject)
+        //Editbutton på ändra information sidan
+        theEditBtn.addEventListener('click', (e)=>{
+            e.preventDefault;
+            const newNick = newNickInput.value;
+            const newColor = newColorInput.value;
+            const newPassword = newPasswordInput.value;
+            const newPasswordConfirm = newPasswordConfirmInput.value;
+            const newBio = newBioInput.value;
+            if (newPassword != newPasswordConfirm) alert('vafan gör du, skriv samma på båda!!!');
+            else {
+                // alert ('updated ffs')
+                const id = this.id;
+                const updateAllObject = {
+                    name: newNick,
+                    color: newColor,
+                    bio: newBio,
+                    password: newPassword,
+                    theTime: 'Ny tid3'
+                };
+                console.log(updateAllObject);
+                const updateAll = {};
+                updateAll[id + '/'] = updateAllObject;
+                const nameToUpdate = {};
+                nameToUpdate[id + '/name'] = newNick;
+                const dbRefUpdate = _database.ref(_firebaseapp.db, '/User/');
+                _database.update(dbRefUpdate, updateAll);
+                console.log(dbRefUpdate);
+                console.log(updateAll);
+            }
+        });
+    }
 }
 
 },{"./firebaseapp":"aqtxR","firebase/database":"bpqHw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lpcHr","jeorp"], "jeorp", "parcelRequired9c2")
