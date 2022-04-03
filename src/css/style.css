@@ -19,7 +19,7 @@ body{
     /* background-image: url(https://www.itl.cat/pngfile/big/151-1515561_conversation-speech-bubbles.png); */
     background-image: url(https://www.nawpic.com/media/2020/minimalist-nawpic-7.jpg);
     background-size: cover;
-    opacity: 90%;
+    opacity: 100%;
     border-radius: 20px;
 
     filter: drop-shadow(10px 10px 4px #161a25);
