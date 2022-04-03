@@ -3,7 +3,7 @@ import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
 
-// createDivs();
+createDivs();
 
 console.log(db);
 const dbRef = ref(db, '/User');

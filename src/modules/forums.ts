@@ -19,18 +19,19 @@ let newPost:Posts[] = [];
 
 onValue(dbRef, snapshot=>{
     console.log(snapshot.val());
-    createDivs(snapshot.val());
+    
     const postData = snapshot.val();
 
     newPost = [];
     for(const key in postData){
-        newPost.push(new Posts(
+        newPost.unshift(new Posts(
             key,
             postData[key].message,
             postData[key].name
         ))
     }
-
+console.log(newPost);
+createDivs(newPost);
 
 });
 
