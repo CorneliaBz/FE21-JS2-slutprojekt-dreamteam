@@ -62,10 +62,10 @@ document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     console.log('knapp fungerar')
 
     postWrapper.innerHTML = '';
-    // const getUser = document.querySelector('#userName');
+    const getUser = document.querySelector('#userName');
     const messageToForum = document.querySelector('#messageToForum');
     const messageValue = messageToForum.value;
-    const userValue = 'getUser.value';
+    const userValue = getUser.value;
 
     console.log(userValue, messageValue);
     const postToAdd = {
