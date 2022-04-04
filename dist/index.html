@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="/index.c92073ef.css">
     <title>Slutprojekt</title>
 </head>
+
 <body>
     <a href="/bio.html">BioBenny</a>
     <section id="forms">
@@ -25,12 +27,15 @@
             <button type="button" id="signupButton">SIGN UP</button>
         </form>
         <h4 id="loginMessage">
+            
     </h4></section>
 
     <div id="bioContainer">
         <div id="picBox">
             <div id="UserNameAndReg">
                 <p id="userNameDiv"></p>
+                <p id="superId"></p>
+
                 <p id="userRegDate">Datum för reg</p>
             </div>
             <div id="regInfo">
@@ -38,7 +43,7 @@
                 <div id="ChangePic">Byta Bild här</div>
             </div>
         </div>
-    
+
         <div id="userBox">
             <!-- <div id="userNameDiv">Username</div> -->
             <div id="bioInfo">All info från</div>
@@ -46,18 +51,16 @@
             <div id="theEditButtonDiv">
                 <button id="editBtn">Ändra din information</button>
             </div>
-                <!-- <p><button id="editBtn">Edit knapp</button> -->
-                <p></p>
-            </div> 
+        </div>
 
 
 
 
-            <div id="editDiv">
-                <form>
-                    <p>Hallå kompis, här kan du ändra din info</p>
-                <label for="editUserName">Nytt användarnamn</label>
-                <input type="text" id="editUserName">
+        <div id="editDiv">
+            <form>
+                <p>Hallå kompis, här kan du ändra din info</p>
+                <label for="editUserName"></label>
+                <!-- <input type="text" id="editUserName"> -->
                 <label for="editPassword">Ändra ditt lösenord: </label>
                 <input type="password" id="editPassword">
                 <input type="password" placeholder="password" id="confirmChangePassword">
@@ -76,17 +79,18 @@
                 <br>
                 <label for="bioInformation">Vill du ändra din info så skriver du här:</label>
                 <textarea name="bioInformation" id="bioInformation" cols="50" rows="8"></textarea>
-                
+
                 <button id="editButton">Klicka här för att bekräfta</button>
                 <br>
                 <label>Klicka här för att ta bort ditt konto, OBS, Går inte att ångra!!</label>
                 <button id="deleteUser">Klicka här för att ta bort ditt konto</button>
-                
+
             </form>
-    
-            </div>
+
+        </div>
     </div>
 
-    
+
 </body>
+
 </html>

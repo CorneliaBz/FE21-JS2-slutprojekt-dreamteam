@@ -15250,19 +15250,7 @@ var version = "9.6.10";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "User", ()=>User
-) // const msgRef = ref(db, '/User/' + this.id);
- // remove(msgRef);
- // const myUserInput: any = document.getElementById('whosYourDaddy');
- // const myName = myUserInput.value
- // const thisDate = new Date();
- // const time = thisDate.getHours();
- // const thisTime = thisDate + ""
- // const taskToAdd = {
- //     userName: myName,
- //     task: test,
- //     theTime: thisTime
- // }
-;
+);
 var _firebaseapp = require("./firebaseapp");
 var _database = require("firebase/database");
 class User {
@@ -15350,13 +15338,8 @@ class User {
         picBox1.style.color = myUserColor;
         userBox.style.color = myUserColor;
         console.log(this.bio);
-        // regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
-        // 'Ditt lösenord är: '+ yourPassword
         //Edit button bio sidan
         const editBtn = document.getElementById('editBtn');
-        // editBtnDiv.appendChild(editBtn)
-        // editBtn.innerHTML= 'Ändra din information';
-        // editBtn.setAttribute('id', this.id)
         editBtn.setAttribute('class', 'editKnappen');
         editBtn.addEventListener('click', (e)=>{
             e.preventDefault;
@@ -15383,8 +15366,6 @@ class User {
         const newPasswordInput = document.getElementById('editPassword');
         const newBioInput = document.getElementById('bioInformation');
         const newPasswordConfirmInput = document.getElementById('confirmChangePassword');
-        // newNickInput.setAttribute('value', this.name);
-        // newNickInput.setAttribute('value', this.name);
         newColorInput.setAttribute('value', this.color);
         newColorInput.setAttribute('placeholder', this.color);
         newPasswordInput.setAttribute('value', this.password);
@@ -15393,24 +15374,8 @@ class User {
         newBioInput.setAttribute('placeholder', this.bio);
         newPasswordConfirmInput.setAttribute('value', this.password);
         newPasswordConfirmInput.setAttribute('placeholder', this.password);
-        // console.log(newBioInput)
         console.log(this.bio);
-        // const newNick = newNickInput.value
-        // const newColor = newColorInput.value
-        // const newPassword = newPasswordInput.value;
-        // const newPasswordConfirm = newPasswordConfirmInput.value
-        // const newBio = newBioInput.value
-        // alert ('updated ffs')
-        // console.log(newBio)
         const id1 = this.id;
-        // const updateAllObject = {
-        //     name: newNick,
-        //     color: 'greeeen',
-        //     bio: 'newBio',
-        //     password: newPassword,
-        //     theTime: 'Ny tiddd'
-        // }
-        // console.log(updateAllObject)
         //Editbutton på ändra information sidan
         theEditBtn.addEventListener('click', (e)=>{
             e.preventDefault;
@@ -15421,7 +15386,6 @@ class User {
             const newBio = newBioInput.value;
             if (newPassword != newPasswordConfirm) alert('vafan gör du, skriv samma på båda!!!');
             else {
-                // alert ('updated ffs')
                 const id = this.id;
                 const updateAllObject = {
                     name: this.name,
@@ -15433,12 +15397,8 @@ class User {
                 console.log(updateAllObject);
                 const updateAll = {};
                 updateAll[id + '/'] = updateAllObject;
-                const nameToUpdate = {};
-                nameToUpdate[id + '/name'] = newNick;
                 const dbRefUpdate = _database.ref(_firebaseapp.db, '/User/');
                 _database.update(dbRefUpdate, updateAll);
-                console.log(dbRefUpdate);
-                console.log(updateAll);
             }
         });
     }

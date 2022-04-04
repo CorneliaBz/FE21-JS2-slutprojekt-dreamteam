@@ -120,18 +120,10 @@ export class User {
 
         console.log(this.bio)
 
-        // regInfoDiv.innerHTML = 'Ditt lösenord är: '+ yourPassword
-        // 'Ditt lösenord är: '+ yourPassword
         //Edit button bio sidan
         const editBtn:any = document.getElementById('editBtn');
-        // editBtnDiv.appendChild(editBtn)
 
-        // editBtn.innerHTML= 'Ändra din information';
-        // editBtn.setAttribute('id', this.id)
         editBtn.setAttribute('class','editKnappen')
-
-        
-
         editBtn.addEventListener('click' , e =>{
             e.preventDefault
             const bioContainer = document.getElementById('userBox');
@@ -168,9 +160,6 @@ export class User {
         const newBioInput:any = document.getElementById('bioInformation');
         const newPasswordConfirmInput:any = document.getElementById('confirmChangePassword')
 
-
-        // newNickInput.setAttribute('value', this.name);
-        // newNickInput.setAttribute('value', this.name);
         newColorInput.setAttribute('value', this.color);
         newColorInput.setAttribute('placeholder', this.color);
         newPasswordInput.setAttribute('value', this.password)
@@ -180,36 +169,9 @@ export class User {
         newPasswordConfirmInput.setAttribute('value', this.password)
         newPasswordConfirmInput.setAttribute('placeholder', this.password)
        
-        // console.log(newBioInput)
-
         console.log(this.bio)
         
-        // const newNick = newNickInput.value
-        // const newColor = newColorInput.value
-        // const newPassword = newPasswordInput.value;
-        // const newPasswordConfirm = newPasswordConfirmInput.value
-        // const newBio = newBioInput.value
-
-        // alert ('updated ffs')
-        
-                    
-        // console.log(newBio)
-
         const id = this.id
-        
-        // const updateAllObject = {
-
-        //     name: newNick,
-        //     color: 'greeeen',
-        //     bio: 'newBio',
-        //     password: newPassword,
-        //     theTime: 'Ny tiddd'
-
-        // }
-
-        // console.log(updateAllObject)
-
-
 
     //Editbutton på ändra information sidan
         theEditBtn.addEventListener('click', e =>{
@@ -225,10 +187,7 @@ export class User {
                 alert ('vafan gör du, skriv samma på båda!!!')
             }
             else{
-            // alert ('updated ffs')
             
-                        
-
             const id = this.id
             
             const updateAllObject = {
@@ -238,44 +197,16 @@ export class User {
                 bio: newBio,
                 password: newPassword,
                 theTime: this.theTime
-    
             }
     
             console.log(updateAllObject)
             const updateAll = {};
             updateAll[id+'/']= updateAllObject
 
-            const nameToUpdate  = {}
-            nameToUpdate[id+'/name'] = newNick
-
-
             const dbRefUpdate = ref(db, '/User/');
 
             update(dbRefUpdate, updateAll);
-
-            console.log(dbRefUpdate)
-            console.log(updateAll)
-
-    
         }
-
         })
     }
 }
-
-// const msgRef = ref(db, '/User/' + this.id);
-// remove(msgRef);
-
-
-// const myUserInput: any = document.getElementById('whosYourDaddy');
-// const myName = myUserInput.value
-
-// const thisDate = new Date();
-// const time = thisDate.getHours();
-// const thisTime = thisDate + ""
-
-// const taskToAdd = {
-//     userName: myName,
-//     task: test,
-//     theTime: thisTime
-// }
