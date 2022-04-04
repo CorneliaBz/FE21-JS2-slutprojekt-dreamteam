@@ -1,6 +1,6 @@
 import { db } from "./firebaseapp";
 import { ref, remove, update, push } from "firebase/database";
-import { EditUser } from "./bio";
+import { updateUser, userBio } from "./bio";
 
 
 
@@ -11,7 +11,8 @@ export class User {
         public readonly color: string,
         public readonly name: string,
         public readonly password: string,
-        public readonly theTime: string
+        public readonly theTime: string,
+        public readonly theImage:string
 
     ) {
         this.checkUser();
@@ -32,6 +33,12 @@ export class User {
                 forms.style.display = 'none';
                 const bioContainer = document.getElementById('bioContainer');
                 bioContainer.style.display = "block";
+                userBio(this.name, this.password, this.bio, this.color, this.theTime);
+                updateUser(this.name, this.id, this.password, this.bio, this.color, this.theTime, this.theImage)
+                    console.log()
+                // function userBio(userName:string, passWord:string, myBio:string, myColor:string, myUserRegDate:string):void {
+
+
     
             } else if (this.name != name.value && this.password == password.value) {
                 loginMessage.innerText = 'Fel användarnamn';

@@ -2,10 +2,11 @@ import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
-import { EditUser } from "./modules/bio";
+import { userBio, updateUser } from "./modules/bio";
 
-createDivs();
+// createDivs();
 
+// userBio()
 console.log(db);
 const dbRef = ref(db, '/User');
 let user: User[] = [];
@@ -31,7 +32,9 @@ onValue(dbRef, snapshot => {
             userData[key].color,
             userData[key].name,
             userData[key].password,
-            userData[key].theTime
+            userData[key].theTime,
+            userData[key].theImage
+
         ))
     }
 
