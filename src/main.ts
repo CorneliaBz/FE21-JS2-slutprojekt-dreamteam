@@ -25,7 +25,7 @@ onValue(dbRef, snapshot => {
         ))
     }
 
-    //Knapp som kallar på createUser();
+    //Knapp som kallar på createUser() från ./modules/User;
     document.querySelector('#signupButton').addEventListener('click', e => {
         e.preventDefault();
         createUser(userData);
