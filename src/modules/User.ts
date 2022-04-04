@@ -13,8 +13,8 @@ export class User {
     ) {
         this.displayUser();
         this.checkUser();
-        this.userBio();
-        this.updateUser()
+        // this.userBio();
+        // this.updateUser()
     }
     //Display alla egenskaper som användaren har
     private displayUser(): void {

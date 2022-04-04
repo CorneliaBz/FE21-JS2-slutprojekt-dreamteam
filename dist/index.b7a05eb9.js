@@ -517,7 +517,6 @@ function hmrAcceptRun(bundle, id) {
 var _database = require("firebase/database");
 var _firebaseapp = require("./modules/firebaseapp");
 var _user = require("./modules/User");
-// import {UserBio} from "./modules/bio"
 const bioContainer = document.getElementById('bioContainer');
 bioContainer.style.display = "none";
 const editDiv = document.getElementById('editDiv');
@@ -549,6 +548,7 @@ document.querySelector('#signupButton').addEventListener('click', (e)=>{
         const time = thisDate.getHours();
         const thisTime = thisDate + "";
         const UserToAdd = {
+            theImage: '',
             bio: '',
             color: '',
             name: name.value,
@@ -562,7 +562,8 @@ document.querySelector('#signupButton').addEventListener('click', (e)=>{
         _database.update(dbRef, newUser);
         message.innerText = 'New user created, you can now sign in';
     } else message.innerText = 'Password not matching';
-});
+}) // EditUser
+;
 
 },{"firebase/database":"bpqHw","./modules/firebaseapp":"aqtxR","./modules/User":"cRxRb"}],"bpqHw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -15263,8 +15264,8 @@ class User {
         this.theTime = theTime;
         this.displayUser();
         this.checkUser();
-        this.userBio();
-        this.updateUser();
+    // this.userBio();
+    // this.updateUser()
     }
     //Display alla egenskaper som användaren har
     displayUser() {

@@ -1,7 +1,7 @@
 import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User } from "./modules/User";
-// import {UserBio} from "./modules/bio"
+import { EditUser } from "./modules/bio";
 
 
 const bioContainer = document.getElementById('bioContainer');
@@ -59,6 +59,7 @@ document.querySelector('#signupButton').addEventListener('click', e=>{
         const thisTime = thisDate + ""
 
         const UserToAdd = {
+            theImage: '',
             bio: '',
             color: '',
             name: name.value,
@@ -77,3 +78,5 @@ document.querySelector('#signupButton').addEventListener('click', e=>{
         message.innerText = 'Password not matching';
     };
 })
+
+// EditUser
