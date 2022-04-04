@@ -15384,10 +15384,15 @@ class User {
         const newBioInput = document.getElementById('bioInformation');
         const newPasswordConfirmInput = document.getElementById('confirmChangePassword');
         // newNickInput.setAttribute('value', this.name);
-        // newColorInput.setAttribute('value', this.color);
-        // newPasswordInput.setAttribute('value', this.password)
-        // newBioInput.setAttribute('value', this.bio)
-        // newPasswordConfirmInput.setAttribute('value', this.password)
+        // newNickInput.setAttribute('value', this.name);
+        newColorInput.setAttribute('value', this.color);
+        newColorInput.setAttribute('placeholder', this.color);
+        newPasswordInput.setAttribute('value', this.password);
+        newPasswordInput.setAttribute('placeholder', this.password);
+        newBioInput.setAttribute('value', this.bio);
+        newBioInput.setAttribute('placeholder', this.bio);
+        newPasswordConfirmInput.setAttribute('value', this.password);
+        newPasswordConfirmInput.setAttribute('placeholder', this.password);
         // console.log(newBioInput)
         console.log(this.bio);
         // const newNick = newNickInput.value
@@ -15409,7 +15414,7 @@ class User {
         //Editbutton på ändra information sidan
         theEditBtn.addEventListener('click', (e)=>{
             e.preventDefault;
-            const newNick = newNickInput.value;
+            // const newNick = newNickInput.value
             const newColor = newColorInput.value;
             const newPassword = newPasswordInput.value;
             const newPasswordConfirm = newPasswordConfirmInput.value;
@@ -15419,7 +15424,7 @@ class User {
                 // alert ('updated ffs')
                 const id = this.id;
                 const updateAllObject = {
-                    name: newNick,
+                    name: this.name,
                     color: newColor,
                     bio: newBio,
                     password: newPassword,

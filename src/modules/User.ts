@@ -170,10 +170,15 @@ export class User {
 
 
         // newNickInput.setAttribute('value', this.name);
-        // newColorInput.setAttribute('value', this.color);
-        // newPasswordInput.setAttribute('value', this.password)
-        // newBioInput.setAttribute('value', this.bio)
-        // newPasswordConfirmInput.setAttribute('value', this.password)
+        // newNickInput.setAttribute('value', this.name);
+        newColorInput.setAttribute('value', this.color);
+        newColorInput.setAttribute('placeholder', this.color);
+        newPasswordInput.setAttribute('value', this.password)
+        newPasswordInput.setAttribute('placeholder', this.password)
+        newBioInput.setAttribute('value', this.bio)
+        newBioInput.setAttribute('placeholder', this.bio)
+        newPasswordConfirmInput.setAttribute('value', this.password)
+        newPasswordConfirmInput.setAttribute('placeholder', this.password)
        
         // console.log(newBioInput)
 
@@ -210,7 +215,7 @@ export class User {
         theEditBtn.addEventListener('click', e =>{
             e.preventDefault;
 
-            const newNick = newNickInput.value
+            // const newNick = newNickInput.value
             const newColor = newColorInput.value
             const newPassword = newPasswordInput.value;
             const newPasswordConfirm = newPasswordConfirmInput.value
@@ -228,7 +233,7 @@ export class User {
             
             const updateAllObject = {
 
-                name: newNick,
+                name: this.name,
                 color: newColor,
                 bio: newBio,
                 password: newPassword,
