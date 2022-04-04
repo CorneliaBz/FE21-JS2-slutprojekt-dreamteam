@@ -27,7 +27,6 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
         
     console.log(newPost);
     createDivs(newPost);
-    // clickOnDeleteButton(newPost)
     });
 })
 
@@ -43,30 +42,27 @@ class Posts{
 
 let newPost:Posts[] = [];
 
-function clickOnDeleteButton(products){
-    console.log(products[key].id)
-    document.querySelector('.button').addEventListener('click', ()=>{
-        const name:HTMLInputElement = document.querySelector('#userName');
-        console.log('this name', 'this name value', name.value);
-        const postOwner = products[3].name;
-        
-        if(postOwner==name.value){
-            console.log(products[3].id);
-            const getId = products[3].id;
-            const msgRef = ref(db, `/Forum/topic1/${getId}`);
-            console.log(msgRef);
-            remove(msgRef);
-            // postWrapper.innerHTML = '';
-            // window.location.reload();
-            
-        }
-    })
+function clickOnDeleteButton(key){
+    console.log('key', key);
+    const name:HTMLInputElement = document.querySelector('#userName');
+    console.log('this name', key.name, 'this name value', name.value);
+    const postOwner = key.name;
+    console.log(key.name);
+    
+    if(postOwner==name.value){
+        console.log(key.id);
+        const getId = key.id;
+        const msgRef = ref(db, `/Forum/${dbRef.key}/${getId}`);
+        console.log(dbRef.key);
+        remove(msgRef);
+    }
 }
 
 const postWrapper = document.querySelector('#postWrapper');
 function createDivs(products){
     postWrapper.innerHTML = '';
     for(const key in products){
+        console.log('key in forloop', products[key].name)
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
         createWrapperDiv.style.border ='solid 2px black';
@@ -83,6 +79,10 @@ function createDivs(products){
         deleteButton.setAttribute('class', 'button')
         deleteButton.innerText = 'Ta bort';
         deleteButton.style.margin = '1rem';
+
+        deleteButton.addEventListener('click', ()=>{
+            clickOnDeleteButton(products[key]);
+        })
     }
 };
 
