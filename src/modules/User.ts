@@ -29,8 +29,8 @@ export class User {
             if (this.name === name.value && this.password === password.value) {
                 const forms: HTMLDivElement = document.querySelector('#forms');
                 forms.style.display = 'none';
-                const bioContainer = document.getElementById('bioContainer');
-                bioContainer.style.display = "block";
+                // const bioContainer = document.getElementById('bioContainer');
+                // bioContainer.style.display = "block";
                 userBio(this.name, this.password, this.bio, this.color, this.theTime);
                     console.log()
                 // function userBio(userName:string, passWord:string, myBio:string, myColor:string, myUserRegDate:string):void {

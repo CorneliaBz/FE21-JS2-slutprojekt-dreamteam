@@ -2,7 +2,6 @@ import { db } from "./firebaseapp";
 import { ref, remove, update, push } from "firebase/database";
 import { User } from "./User";
 
-//På denna sida finns funktionerna export userBio, updateUser och RemoveUser 
 
 //Döljer Div:arna som innehåller all info i DOMen
 const bioContainer = document.getElementById('bioContainer');
@@ -32,5 +31,20 @@ function userBio(userName: string, passWord: string, myBio: string, myColor: str
 }
 // Slut på UserBio()
 
+//Möjlighet att komma till din egna Bio sida:
 
-export { userBio }
+function showYourInfoFunction(){
+                const bioContainer = document.getElementById('bioContainer');
+                bioContainer.style.display = "block";
+
+}
+
+function hideYourInfoFunction(){
+                const bioContainer = document.getElementById('bioContainer');
+                bioContainer.style.display = "none";
+
+}
+
+
+
+export { userBio, showYourInfoFunction, hideYourInfoFunction }

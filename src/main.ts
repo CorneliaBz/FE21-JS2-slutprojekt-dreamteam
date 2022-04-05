@@ -2,9 +2,9 @@ import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
-import { userBio} from "./modules/bio";
+import { userBio, showYourInfoFunction, hideYourInfoFunction} from "./modules/bio";
 
-// createDivs();
+createDivs();
 
 // userBio()
 console.log(db);
@@ -36,3 +36,6 @@ onValue(dbRef, snapshot => {
         createUser(userData);
     })
 });
+
+const yourInfoBtn = document.getElementById('yourInfo');
+yourInfoBtn.addEventListener('click',  showYourInfoFunction)
