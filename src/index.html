@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Slutprojekt</title>
 </head>
+
 <body>
     <!-- Login och regestrerings formulär -->
     <section id="forms">
@@ -22,6 +24,16 @@
         <form class="twoForms" id="registerForm">
             <h2>Registrering</h2>
             <input type="text" placeholder="Användarnamn" id="newUserName" required>
+            <input type="text" placeholder="Biografi" id="newBio" required>
+            <!-- <input list="images" placeholder="Profilbild" name="image" id="newImg"> -->
+            <select name="Profilbild" id="images">
+                <option value="">Välj Profilbild</option>
+                <option value="https://imgur.com/Yov38RY.jpg">Annie</option>
+                <option value="https://imgur.com/a/QPAZZvY.jpg">Fiora</option> 
+                <option value="https://imgur.com/a/tk5nu5r.jpg">Wukong</option> 
+                <option value="https://imgur.com/a/SVzu1cE.jpg">Draven</option> 
+                <option value="https://imgur.com/a/Ew7UYAr.jpg">Ziggs</option> 
+            </select>
             <input type="password" placeholder="Lösenord" id="newUserPassword" required>
             <input type="password" placeholder="Bekräfta Lösenord" id="confirmNewUserPassword" required>
             <button type="button" id="signupButton">SIGN UP</button>
@@ -30,7 +42,7 @@
     </section>
     <!-- Slut Login och regestrerings formulär -->
     <section id="addMessageToForum">
-        <textarea name="addMessageToForum" id="messageToForum"  rows="4" cols="50">
+        <textarea name="addMessageToForum" id="messageToForum" rows="4" cols="50">
         <button id="sendMessageToForum">Lägg till inlägg</button>
     </section>
     <section class="navigation">

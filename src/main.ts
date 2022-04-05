@@ -19,7 +19,7 @@ onValue(dbRef, snapshot => {
         user.push(new User(
             key,
             userData[key].bio,
-            userData[key].color,
+            userData[key].img,
             userData[key].name,
             userData[key].password,
         ))

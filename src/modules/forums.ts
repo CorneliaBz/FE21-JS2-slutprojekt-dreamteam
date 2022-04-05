@@ -88,8 +88,8 @@ function createDivs(products){
 
 document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     event.preventDefault();
-    const getUser = document.querySelector('#userName');
-    const messageToForum = document.querySelector('#messageToForum');
+    const getUser = document.querySelector('#userName') as HTMLInputElement;
+    const messageToForum = document.querySelector('#messageToForum') as HTMLInputElement;
     const messageValue = messageToForum.value;
     const userValue = getUser.value;
     const postToAdd = {

@@ -5,9 +5,9 @@ export class User {
     constructor(
         public readonly id: string,
         public readonly bio: string,
-        public readonly color: string,
+        public readonly img: string,
         public readonly name: string,
-        public readonly password: string
+        public readonly password: string,
 
     ) {
         this.checkUser();
@@ -20,7 +20,7 @@ export class User {
             const password: HTMLInputElement = document.querySelector('#userPassword');
 
             const loginMessage: HTMLHeadElement = document.querySelector('#loginMessage');
-
+            
             console.log(name.value, password.value)
             if (this.name === name.value && this.password === password.value) {
                 const forms: HTMLDivElement = document.querySelector('#forms');
@@ -42,17 +42,21 @@ export class User {
 export function createUser(userData): any {
     //Hämtar inputElement
     const name: HTMLInputElement = document.querySelector('#newUserName');
+    const bio: HTMLInputElement = document.querySelector('#newBio');
     const password: HTMLInputElement = document.querySelector('#newUserPassword');
     const confirmPassword: HTMLInputElement = document.querySelector('#confirmNewUserPassword');
+    const image: HTMLInputElement = document.querySelector('#newImg');
+    
     //Felmeddelande
     const regMessage: HTMLHeadElement = document.querySelector('#regMessage');
     //Variabler som ska jämföras med varandra
     const newUsername = name.value;
-    const userNames = Object.values(userData);
+    const userNames:User[] = Object.values(userData);
     
     let addUser: boolean = true;
 
     const dbRef: DatabaseReference = ref(db, '/User');
+    console.log(image.value, image.placeholder);
     for(const userName of userNames){
         //Kollar om newUsername finns i databasen databasen som userName.name. 
         //Om namnet redan finns kan vi inte skapa användare då addUser = false.
@@ -62,12 +66,13 @@ export function createUser(userData): any {
             break;
         }
     }
+
     //Om newUsername och userName.name inte är samma skapas en ny användare.
     //Här kollas även om lösenordet matchar varandra.
     if(addUser && password.value == confirmPassword.value){
         const UserToAdd = {
-            bio: '',
-            color: '',
+            bio: bio.value,
+            img: image.value,
             name: name.value,
             password: password.value,
         }

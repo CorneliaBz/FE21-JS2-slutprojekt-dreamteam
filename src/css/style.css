@@ -25,7 +25,7 @@ body{
     filter: drop-shadow(10px 10px 4px #161a25);
 
     width: 60rem;
-    height: 30rem;
+    height: 40rem;
 }
 
 #forms h2{
@@ -54,7 +54,7 @@ body{
     transition: all 0.4s ease-in-out;
 }
 
-.twoForms input[type=text], .twoForms input[type=password]{
+.twoForms input[type=text], .twoForms input[type=password], .twoForms select{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -63,13 +63,18 @@ body{
     border: 3px solid white;
 }
 
-.twoForms input[type=text]:focus, .twoForms input[type=password]:focus{
+.twoForms input[type=text]:focus, .twoForms input[type=password]:focus, .twoForms select:focus{
     outline:none;
     border: 3px solid #e10279;
 }
 
 .twoForms input{
     width: 100%;
+}
+
+#img1{
+    background-color: blue;
+    color: blue;
 }
 
 .twoForms button{
@@ -93,7 +98,7 @@ body{
 
 #loginButton{
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 20%;
     margin-right: -50%;
     transform: translate(-20%, -20%);
@@ -101,7 +106,7 @@ body{
 
 #signupButton{
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 70%;
     margin-right: -50%;
     transform: translate(-20%, -20%);
