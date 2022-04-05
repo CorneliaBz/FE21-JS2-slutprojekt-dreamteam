@@ -46,18 +46,14 @@ body{
     margin: 2rem;
 }
 
-#picBox, #userBox {
-    width: 40%;
-    padding: 10px;
-}
-
 #userBox{
     color: #7eb4cf;
 }
 
-#regInfo img{
-    border: #161a25 5px solid;
+#imgDiv img{
+    max-width: 20rem;
 }
+
 
 
 /* SLUT User bio styling */
