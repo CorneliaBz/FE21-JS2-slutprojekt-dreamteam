@@ -7,26 +7,15 @@ body{
 /* User Bio styling START */
 #bioContainer{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     border: solid 2px grey;
     padding: 2rem;
     justify-content: center;
     margin: 0;
 }
 
-#bioContainer > #picBox{
-    display: inline-block;
-}
-
-
-#picBox{
-    border: solid 2px grey;
-    padding: 2rem;
-    justify-content: center;
-    /* width: 40rem; */
-}
 #UserNameAndReg{
-display: flex;
-flex-direction: column;
     border: solid 2px grey ;
     height: 20rem;
     width: 25rem;
@@ -46,16 +35,8 @@ flex-direction: column;
     border: solid 2px grey;
     width: 30rem;
 }
-#bioContainer > #userBox{
-    display: inline-block;
-}
 
 
-/* #userNameDiv{
-    border: solid 2px grey;
-    height: 10rem;
-    width: 25rem;  
-} */
 #bioInfo{
     display: flex;
     border: solid 2px grey;
@@ -75,6 +56,14 @@ flex-direction: column;
 
 #deleteUser{
     margin-top: 5rem;
+}
+
+#bioContainer > #imgDiv{
+    display: block;
+}
+
+#imgDiv img{
+max-width: 20rem;
 }
 /* SLUT User bio styling */
 

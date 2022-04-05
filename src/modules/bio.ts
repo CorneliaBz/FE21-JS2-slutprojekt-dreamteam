@@ -7,18 +7,20 @@ const bioContainer = document.getElementById('bioContainer');
 bioContainer.style.display = "none"
 
 //Tar fram infon från firebase och loggar i BioContainern / DOM, via User.ts
-function userBio(userName: string, myBio: string, myUserRegDate: string): void {
+function userBio(userName: string, myBio: string, thisImg: string): void {
 
     const myUserBioDiv: any = document.getElementById('bioInfo')
-    const regInfoDiv: any = document.getElementById('regInfo')
-    const picBox: any = document.getElementById('picBox')
-    const userBox: any = document.getElementById('userBox')
-    const userRegDate: any = document.getElementById('userRegDate')
-    const userNameDiv: any = document.getElementById('userNameDiv')
+    const userNameDiv: any = document.getElementById('userNameDiv');
+    const imgDiv: any = document.getElementById('imgDiv');
+
+//Create Image 
+    let myImg = document.createElement('img');
+    myImg.src = thisImg;
+    myImg.setAttribute('id', 'myImages');
+    imgDiv.appendChild(myImg);
 
     userNameDiv.innerHTML = `Användarnamn: <br>
         ${userName}`
-    userRegDate.innerHTML = `Tid för registrering: <br> ${myUserRegDate}`
     myUserBioDiv.innerHTML = 'Information om användare: ' + myBio
 
     //Edit button för att komma till updateUser funktionen
@@ -40,5 +42,6 @@ function hideYourInfoFunction() {
     bioContainer.style.display = "none";
 
 }
+
 
 export { userBio, showYourInfoFunction, hideYourInfoFunction }

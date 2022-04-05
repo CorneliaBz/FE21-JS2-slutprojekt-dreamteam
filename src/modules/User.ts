@@ -28,7 +28,7 @@ export class User {
                 const forms: HTMLDivElement = document.querySelector('#forms');
                 
                 forms.style.display = 'none';
-                userBio(this.name, this.bio, this.theTime);
+                userBio(this.name, this.bio, this.img);
     
             } else if (this.name != name.value && this.password == password.value) {
                 loginMessage.innerText = 'Fel användarnamn';
