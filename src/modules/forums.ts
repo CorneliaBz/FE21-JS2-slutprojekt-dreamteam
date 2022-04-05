@@ -2,13 +2,16 @@ import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
 
 let dbRef = ref (db, '/Forum/topic1');
+const addMessageToForum = document.querySelector('#addMessageToForum') as HTMLInputElement;
+addMessageToForum.style.display ='none';
 
 document.querySelector('.navigation').addEventListener('click', (event) =>{
-    if((event.target as Element).className === 'numberTwo'){
+    addMessageToForum.style.display ='block';
+    if((event.target as Element).className === 'playerLookForTeam'){
         dbRef = ref (db, '/Forum/topic2');
-    }else if((event.target as Element).className === 'numberThree'){
+    }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
-    }else if((event.target as Element).className === 'numberOne'){
+    }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
     }
     onValue(dbRef, snapshot=>{
@@ -93,8 +96,8 @@ function createDivs(products){
 
 document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     event.preventDefault();
-    const getUser = document.querySelector('#userName');
-    const messageToForum = document.querySelector('#messageToForum');
+    const getUser = document.querySelector('#userName') as HTMLInputElement;
+    const messageToForum = document.querySelector('#messageToForum') as HTMLInputElement;
     const messageValue = messageToForum.value;
     const userValue = getUser.value;
     const postToAdd = {
