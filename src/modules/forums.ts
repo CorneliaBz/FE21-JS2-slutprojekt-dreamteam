@@ -62,7 +62,6 @@ const postWrapper = document.querySelector('#postWrapper');
 function createDivs(products){
     postWrapper.innerHTML = '';
     for(const key in products){
-        console.log('key in forloop', products[key].name)
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
         createWrapperDiv.style.border ='solid 2px black';
@@ -79,6 +78,12 @@ function createDivs(products){
         deleteButton.setAttribute('class', 'button')
         deleteButton.innerText = 'Ta bort';
         deleteButton.style.margin = '1rem';
+
+        const name:HTMLInputElement = document.querySelector('#userName');
+        const postOwner = products[key].name
+        if(postOwner!=name.value){
+            deleteButton.style.display ='none'
+        }
 
         deleteButton.addEventListener('click', ()=>{
             clickOnDeleteButton(products[key]);
