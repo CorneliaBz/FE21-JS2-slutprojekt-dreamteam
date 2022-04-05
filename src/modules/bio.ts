@@ -1,5 +1,5 @@
 import { db } from "./firebaseapp";
-import { ref, remove, update } from "firebase/database";
+import { ref, remove } from "firebase/database";
 
 
 //Döljer Div:arna som innehåller all info i DOMen
@@ -29,9 +29,10 @@ function userBio(userName: string, myBio: string, thisImg: string, id:string): v
 const removeBtn = document.getElementById('deleteButton')
 
     removeBtn.addEventListener('click', () => {
-        alert ('Detta går inte att göra ogjort! Vänligen skapa en ny användare om du vill fortsätta göra inlägg')
+        alert ('Detta går inte att få ogjort! Vänligen skapa en ny användare om du vill fortsätta göra inlägg')
         const deleteTheUser = ref(db, '/User/' + id);
         remove(deleteTheUser);
+        location.reload();
     })
 
 
