@@ -5,17 +5,17 @@
 
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1d253b;
+    background-color: #050813;
 }
 
 .header{
     padding: 2rem;
-    background-color: #143849;
+    background-color: #09141e;
 }
 
 /*START Navigation Styling*/
 .navigation{
-    background-color: #1d475b;
+    background-color: #222735;
     text-align: center;
     padding: 10px;
     margin: 0px;
@@ -23,14 +23,15 @@ body{
 
 .navigation a{
     text-decoration: none;
+    font-weight: 600;
     padding: 10px;
-    color: rgb(204, 211, 223);
+    color: #3e9f95;
     text-transform: uppercase;
 }
 
 .navigation a:hover{
-    /* background-color: #275970; */
-    color: white;
+    font-weight: 600;
+    color: #c5a284;
     transform: translate(-20%, -20%);
     transition: all 0.4s ease-in-out;
     filter: drop-shadow(0px 0px 10px #f5faae);
@@ -45,18 +46,14 @@ body{
     margin: 2rem;
 }
 
-#picBox, #userBox {
-    width: 40%;
-    padding: 10px;
-}
-
 #userBox{
     color: #7eb4cf;
 }
 
-#regInfo img{
-    border: #161a25 5px solid;
+#imgDiv img{
+    max-width: 20rem;
 }
+
 
 
 /* SLUT User bio styling */
@@ -79,7 +76,7 @@ body{
     opacity: 100%;
     border-radius: 20px;
 
-    filter: drop-shadow(10px 10px 4px #161a25);
+    filter: drop-shadow(10px 10px 4px #020307);
 
     width: 60rem;
     height: 40rem;
@@ -93,6 +90,15 @@ body{
     text-transform: uppercase;
     color: #1d475b;
     text-shadow: -1px -1px 0 #255d77, 1px -1px 0 #255d77, -1px 1px 0 #163646, 1px 1px 0 #163646;
+    filter: drop-shadow(0px 0px 8px #fde0b3);
+}
+
+#forms h4{
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:#161a25;
+    background: radial-gradient(circle, #1d475b 0%, rgba(253,213,214,0) 100%);
 }
 
 #loginForm, #registerForm{
@@ -164,7 +170,7 @@ body{
 
 /*Forums styling*/
 
-#addMessageToForum{
+.addMessageToForum{
     margin-top: 50px;
     text-align: center;
 }
@@ -193,6 +199,14 @@ body{
 .forumPost{
     padding: 20px 20px;
     border-bottom:#161a25 solid 2px;
+}
+
+.forumPost:hover{
+    transition: all 0.4s ease-in-out;
+    width: 98%;
+    padding: 20px 20px;
+    background-color: #2a6f8fa6;
+    filter: drop-shadow(0px 0px 8px #b3f2fd);
 }
 
 .postName{

@@ -6,8 +6,9 @@ import { User } from "./User";
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
 //Döljer skrivfältet innan man gått in på forumsidorna
-const addMessageToForum = document.querySelector('#addMessageToForum') as HTMLInputElement;
+const addMessageToForum = document.querySelector('.addMessageToForum') as HTMLInputElement;
 addMessageToForum.style.display ='none';
+const yourPlace= document.querySelector('.yourPlace');
 
 //Vid klick på ett utav forum namnen så tas du till rätt forum sida
 document.querySelector('.navigation').addEventListener('click', (event) =>{
@@ -18,21 +19,22 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
         addMessageToForum.style.display ='block';
         dbRef = ref (db, '/Forum/topic2');
         yourPlace.innerHTML = ('Spelare söker lag');
-        
+        postWrapper.style.display = 'block';
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
-        yourPlace.innerHTML = ('Fria åsikter om den senaste patchen');
-        addMessageToForum.style.display ='block';
+        yourPlace.innerHTML = ('Diskutera den senaste patchen');
+        postWrapper.style.display = 'block';
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
         yourPlace.innerHTML = ('Lag söker spelare');
-        addMessageToForum.style.display ='block';
+        postWrapper.style.display = 'block';
         hideYourInfoFunction();
     }else {
-        postWrapper.style.display = 'none';
         addMessageToForum.style.display = 'none';
+        postWrapper.style.display = 'none';
+        // showYourInfoFunction();
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{
