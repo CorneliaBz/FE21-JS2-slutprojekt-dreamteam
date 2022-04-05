@@ -35,10 +35,10 @@ export function showAllUsersFunction(allUsers) {
 
             specificUersBtn.addEventListener('click', ()=>{
                 const showNameP = document.getElementById('showNameP');
-                const showImgP = document.getElementById('showImgP');
+                const showImgP: HTMLImageElement = document.querySelector('#showImgP');
                 const showBioP = document.getElementById ('showBioP');
                 showNameP.innerHTML = userNames[i].name
-                showImgP.innerHTML = userNames[i].img
+                showImgP.src = userNames[i].img
                 showBioP.innerHTML = userNames[i].bio
 
             })
