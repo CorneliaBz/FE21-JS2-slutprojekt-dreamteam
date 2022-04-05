@@ -186,3 +186,7 @@ body{
 /* END Styling till login och regestrerings formulär */
 
 /*Forums styling*/
+
+.navigation{
+    margin: 3rem;
+}

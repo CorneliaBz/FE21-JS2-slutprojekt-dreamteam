@@ -1,8 +1,6 @@
 import { db } from "./firebaseapp";
-import { ref, remove, update, push } from "firebase/database";
-import { updateUser, userBio } from "./bio";
-
-
+import { userBio } from "./bio";
+import { ref, remove, update, push, DatabaseReference } from "firebase/database";
 
 export class User {
     constructor(
@@ -64,9 +62,9 @@ export function createUser(userData): any {
     const newUsername = name.value;
     const userNames = Object.values(userData);
     
-    let addUser = true;
+    let addUser: boolean = true;
 
-    const dbRef = ref(db, '/User');
+    const dbRef: DatabaseReference = ref(db, '/User');
     for(const userName of userNames){
         //Kollar om newUsername finns i databasen databasen som userName.name. 
         //Om namnet redan finns kan vi inte skapa användare då addUser = false.

@@ -1,9 +1,34 @@
 import {db} from "./firebaseApp";
-import { onValue, push, ref, update } from "firebase/database";
+import { onValue, push, ref, update, remove } from "firebase/database";
 
+let dbRef = ref (db, '/Forum/topic1');
 
-const dbRef = ref (db, '/Forum/topic1');
-console.log(dbRef)
+document.querySelector('.navigation').addEventListener('click', (event) =>{
+    if((event.target as Element).className === 'numberTwo'){
+        dbRef = ref (db, '/Forum/topic2');
+    }else if((event.target as Element).className === 'numberThree'){
+        dbRef = ref (db, '/Forum/topic3');
+    }else if((event.target as Element).className === 'numberOne'){
+        dbRef = ref (db, '/Forum/topic1');
+    }
+    onValue(dbRef, snapshot=>{
+        console.log('snap', snapshot.val(), 'db', dbRef);
+        
+        const postData = snapshot.val();
+    
+        newPost = [];
+        for(const key in postData){
+            newPost.unshift(new Posts(
+                key,
+                postData[key].message,
+                postData[key].name
+            ))
+        }
+        
+    console.log(newPost);
+    createDivs(newPost);
+    });
+})
 
 class Posts{
     constructor(
@@ -17,29 +42,27 @@ class Posts{
 
 let newPost:Posts[] = [];
 
-onValue(dbRef, snapshot=>{
-    console.log(snapshot.val());
+function clickOnDeleteButton(key){
+    console.log('key', key);
+    const name:HTMLInputElement = document.querySelector('#userName');
+    console.log('this name', key.name, 'this name value', name.value);
+    const postOwner = key.name;
+    console.log(key.name);
     
-    const postData = snapshot.val();
-
-    newPost = [];
-    for(const key in postData){
-        newPost.unshift(new Posts(
-            key,
-            postData[key].message,
-            postData[key].name
-        ))
+    if(postOwner==name.value){
+        console.log(key.id);
+        const getId = key.id;
+        const msgRef = ref(db, `/Forum/${dbRef.key}/${getId}`);
+        console.log(dbRef.key);
+        remove(msgRef);
     }
-console.log(newPost);
-createDivs(newPost);
-
-});
-
+}
 
 const postWrapper = document.querySelector('#postWrapper');
 function createDivs(products){
-    
+    postWrapper.innerHTML = '';
     for(const key in products){
+        console.log('key in forloop', products[key].name)
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
         createWrapperDiv.style.border ='solid 2px black';
@@ -53,22 +76,22 @@ function createDivs(products){
         createPostDiv.innerText = products[key].message;
         const deleteButton = document.createElement('button');
         createPostDiv.appendChild(deleteButton);
+        deleteButton.setAttribute('class', 'button')
         deleteButton.innerText = 'Ta bort';
         deleteButton.style.margin = '1rem';
+
+        deleteButton.addEventListener('click', ()=>{
+            clickOnDeleteButton(products[key]);
+        })
     }
 };
 
 document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     event.preventDefault();
-    console.log('knapp fungerar')
-
-    postWrapper.innerHTML = '';
     const getUser = document.querySelector('#userName');
     const messageToForum = document.querySelector('#messageToForum');
     const messageValue = messageToForum.value;
     const userValue = getUser.value;
-
-    console.log(userValue, messageValue);
     const postToAdd = {
         message: messageValue,
         name: userValue
@@ -77,7 +100,6 @@ document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     const createNewPost = {};
     createNewPost[newMessageKey] = postToAdd;
     update(dbRef, createNewPost); 
-    
 })
 
 
