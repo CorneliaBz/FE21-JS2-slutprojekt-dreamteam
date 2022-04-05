@@ -8,28 +8,11 @@ body{
     background-color: #050813;
 }
 
-/* User Bio styling START */
-#bioContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border: solid 2px grey;}
-    
 .header{
     padding: 2rem;
     background-color: #09141e;
 }
 
-#UserNameAndReg{
-    border: solid 2px grey ;
-    height: 20rem;
-    width: 25rem;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    font-weight: bolder;
-    text-align: center;
-}
 /*START Navigation Styling*/
 .navigation{
     background-color: #222735;
@@ -59,16 +42,6 @@ body{
     color: white;
     background-color: #1d475ba6;
     padding: 2rem;
-    border: solid 2px grey;
-    width: 30rem;
-}
-
-
-#bioInfo{
-    display: flex;
-    border: solid 2px grey;
-    height: 20rem;
-    width: 25rem;
     justify-content: center;
     margin: 2rem;
 }
@@ -86,8 +59,8 @@ body{
     border: #161a25 5px solid;
 }
 
-/* SLUT User bio styling */
 
+/* SLUT User bio styling */
 
 /* START Styling till login och regestrerings formulär */
 
