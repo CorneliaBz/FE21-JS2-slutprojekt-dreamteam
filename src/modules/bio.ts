@@ -7,7 +7,7 @@ const bioContainer = document.getElementById('bioContainer');
 bioContainer.style.display = "none"
 
 //Tar fram infon från firebase och loggar i BioContainern / DOM, via User.ts
-function userBio(userName: string, myBio: string, myUserRegDate: string): void {
+function userBio(userName: string, myBio: string): void {
 
     const myUserBioDiv: any = document.getElementById('bioInfo')
     const regInfoDiv: any = document.getElementById('regInfo')
@@ -18,7 +18,6 @@ function userBio(userName: string, myBio: string, myUserRegDate: string): void {
 
     userNameDiv.innerHTML = `Användarnamn: <br>
         ${userName}`
-    userRegDate.innerHTML = `Tid för registrering: <br> ${myUserRegDate}`
     myUserBioDiv.innerHTML = 'Information om användare: ' + myBio
 
     //Edit button för att komma till updateUser funktionen

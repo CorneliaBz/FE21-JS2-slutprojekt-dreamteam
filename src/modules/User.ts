@@ -9,7 +9,6 @@ export class User {
         public readonly img: string,
         public readonly name: string,
         public readonly password: string,
-        public readonly theTime: string,
     ) {
         this.checkUser();
     }
@@ -28,7 +27,7 @@ export class User {
                 const forms: HTMLDivElement = document.querySelector('#forms');
                 
                 forms.style.display = 'none';
-                userBio(this.name, this.bio, this.theTime);
+                userBio(this.name, this.bio);
     
             } else if (this.name != name.value && this.password == password.value) {
                 loginMessage.innerText = 'Fel användarnamn';

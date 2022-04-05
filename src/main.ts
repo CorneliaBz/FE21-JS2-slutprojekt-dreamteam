@@ -24,7 +24,6 @@ onValue(dbRef, snapshot => {
             userData[key].img,
             userData[key].name,
             userData[key].password,
-            userData[key].theTime,
         ))
     }
 
