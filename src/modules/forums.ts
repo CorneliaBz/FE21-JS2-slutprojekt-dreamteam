@@ -1,21 +1,26 @@
 import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
 
+// Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
+//Döljer skrivfältet innan man gått in på forumsidorna
+const addMessageToForum = document.querySelector('#addMessageToForum') as HTMLInputElement;
+addMessageToForum.style.display ='none';
 
+//Vid klick på ett utav forum namnen så tas du till rätt forum sida
 document.querySelector('.navigation').addEventListener('click', (event) =>{
-    if((event.target as Element).className === 'numberTwo'){
+    addMessageToForum.style.display ='block';
+    if((event.target as Element).className === 'playerLookForTeam'){
         dbRef = ref (db, '/Forum/topic2');
-    }else if((event.target as Element).className === 'numberThree'){
+    }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
-    }else if((event.target as Element).className === 'numberOne'){
+    }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
     }
+    //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{
         console.log('snap', snapshot.val(), 'db', dbRef);
-        
         const postData = snapshot.val();
-    
         newPost = [];
         for(const key in postData){
             newPost.unshift(new Posts(
@@ -24,12 +29,11 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
                 postData[key].name
             ))
         }
-        
-    console.log(newPost);
     createDivs(newPost);
     });
 })
 
+//För att skapa ett inlägg till databasen behövs en class med constructor
 class Posts{
     constructor(
         public readonly id: string,
@@ -39,30 +43,31 @@ class Posts{
 
     }
 }
-
+//Skickar in det nya inlägget i en array
 let newPost:Posts[] = [];
 
-function clickOnDeleteButton(key){
-    console.log('key', key);
-    const name:HTMLInputElement = document.querySelector('#userName');
-    console.log('this name', key.name, 'this name value', name.value);
-    const postOwner = key.name;
-    console.log(key.name);
-    
-    if(postOwner==name.value){
-        console.log(key.id);
-        const getId = key.id;
-        const msgRef = ref(db, `/Forum/${dbRef.key}/${getId}`);
-        console.log(dbRef.key);
-        remove(msgRef);
+//På klick läggs det man skrivit i input in på forumet man står på och lägger till namnet på den som är inloggad
+document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
+    event.preventDefault();
+    const getUser = document.querySelector('#userName') as HTMLInputElement;
+    const messageToForum = document.querySelector('#messageToForum') as HTMLInputElement;
+    const messageValue = messageToForum.value;
+    const userValue = getUser.value;
+    const postToAdd = {
+        message: messageValue,
+        name: userValue
     }
-}
+    const newMessageKey:string = push(dbRef).key;
+    const createNewPost = {};
+    createNewPost[newMessageKey] = postToAdd;
+    update(dbRef, createNewPost); 
+})
 
 const postWrapper = document.querySelector('#postWrapper');
+//Skapar alla element utefter vad som finns i databasen
 function createDivs(products){
     postWrapper.innerHTML = '';
     for(const key in products){
-        console.log('key in forloop', products[key].name)
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
         createWrapperDiv.style.border ='solid 2px black';
@@ -80,27 +85,34 @@ function createDivs(products){
         deleteButton.innerText = 'Ta bort';
         deleteButton.style.margin = '1rem';
 
+        const name:HTMLInputElement = document.querySelector('#userName');
+        const postOwner = products[key].name
+        if(postOwner!=name.value){
+            deleteButton.style.display ='none'
+        }
+
         deleteButton.addEventListener('click', ()=>{
             clickOnDeleteButton(products[key]);
         })
     }
 };
 
-document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
-    event.preventDefault();
-    const getUser = document.querySelector('#userName');
-    const messageToForum = document.querySelector('#messageToForum');
-    const messageValue = messageToForum.value;
-    const userValue = getUser.value;
-    const postToAdd = {
-        message: messageValue,
-        name: userValue
-    }
-    const newMessageKey:string = push(dbRef).key;
-    const createNewPost = {};
-    createNewPost[newMessageKey] = postToAdd;
-    update(dbRef, createNewPost); 
-})
 
+//plockar bort inlägget om inloggad namnet stämmer överens med namnet på son som skrivit inlägget
+function clickOnDeleteButton(key){
+    console.log('key', key);
+    const name:HTMLInputElement = document.querySelector('#userName');
+    console.log('this name', key.name, 'this name value', name.value);
+    const postOwner = key.name;
+    console.log(key.name);
+    
+    if(postOwner==name.value){
+        console.log(key.id);
+        const getId = key.id;
+        const msgRef = ref(db, `/Forum/${dbRef.key}/${getId}`);
+        console.log(dbRef.key);
+        remove(msgRef);
+    }
+}
 
 export {createDivs}
