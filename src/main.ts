@@ -34,9 +34,5 @@ onValue(dbRef, snapshot => {
     })
 });
 
-const addMessageToForum = document.querySelector('.addMessageToForum');
 const yourInfoBtn = document.getElementById('yourInfo');
-yourInfoBtn.addEventListener('click',  ()=>{
-    showYourInfoFunction()
-    addMessageToForum.style.display = 'hidden';
-})
+yourInfoBtn.addEventListener('click',  showYourInfoFunction)
