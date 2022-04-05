@@ -5,7 +5,7 @@ import {hideYourInfoFunction, showYourInfoFunction} from "./bio"
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
 //Döljer skrivfältet innan man gått in på forumsidorna
-const addMessageToForum = document.querySelector('#addMessageToForum') as HTMLInputElement;
+const addMessageToForum = document.querySelector('.addMessageToForum') as HTMLInputElement;
 addMessageToForum.style.display ='none';
 
 //Vid klick på ett utav forum namnen så tas du till rätt forum sida
@@ -23,7 +23,7 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
     }else if((event.target as Element).className === 'yourInfo'){
         addMessageToForum.style.display = ('none');
         postWrapper.innerHTML = '';
-        showYourInfoFunction();
+        // showYourInfoFunction();
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{

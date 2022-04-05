@@ -170,7 +170,7 @@ body{
 
 /*Forums styling*/
 
-#addMessageToForum{
+.addMessageToForum{
     margin-top: 50px;
     text-align: center;
 }
