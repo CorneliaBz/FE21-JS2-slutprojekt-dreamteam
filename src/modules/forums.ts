@@ -119,21 +119,6 @@ function createDivs(products){
     }
 };
 
-document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
-    event.preventDefault();
-    const getUser = document.querySelector('#userName') as HTMLInputElement;
-    const messageToForum = document.querySelector('#messageToForum') as HTMLInputElement;
-    const messageValue = messageToForum.value;
-    const userValue = getUser.value;
-    const postToAdd = {
-        message: messageValue,
-        name: userValue
-    }
-    const newMessageKey:string = push(dbRef).key;
-    const createNewPost = {};
-    createNewPost[newMessageKey] = postToAdd;
-    update(dbRef, createNewPost); 
-})
 
 //plockar bort inlägget om inloggad namnet stämmer överens med namnet på son som skrivit inlägget
 function clickOnDeleteButton(key){
