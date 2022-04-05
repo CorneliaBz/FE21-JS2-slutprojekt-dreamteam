@@ -9,7 +9,6 @@ export class User {
         public readonly img: string,
         public readonly name: string,
         public readonly password: string,
-        public readonly theTime: string,
     ) {
         this.checkUser();
     }

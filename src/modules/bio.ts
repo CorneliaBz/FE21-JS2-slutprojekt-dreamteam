@@ -33,7 +33,7 @@ function userBio(userName: string, myBio: string, thisImg: string): void {
 
 function showYourInfoFunction() {
     const bioContainer = document.getElementById('bioContainer');
-    bioContainer.style.display = "block";
+    bioContainer.style.display = "flex";
 
 }
 

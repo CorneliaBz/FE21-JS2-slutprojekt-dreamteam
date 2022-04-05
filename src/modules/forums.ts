@@ -1,5 +1,6 @@
 import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
+import {hideYourInfoFunction} from "./bio"
 
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
@@ -12,10 +13,15 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
     addMessageToForum.style.display ='block';
     if((event.target as Element).className === 'playerLookForTeam'){
         dbRef = ref (db, '/Forum/topic2');
+        hideYourInfoFunction();
     }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
+        hideYourInfoFunction();
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
+        hideYourInfoFunction();
+    }else {
+        postWrapper.style.display = ('none')
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{
@@ -63,27 +69,30 @@ document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     update(dbRef, createNewPost); 
 })
 
-const postWrapper = document.querySelector('#postWrapper');
+const postWrapper = document.querySelector('#postWrapper') as HTMLInputElement;
 //Skapar alla element utefter vad som finns i databasen
 function createDivs(products){
     postWrapper.innerHTML = '';
     for(const key in products){
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
-        createWrapperDiv.style.border ='solid 2px black';
-        createWrapperDiv.style.padding = '2rem';
+        createWrapperDiv.setAttribute("class", "forumPost");
+
         const createNameDiv = document.createElement('div');
         createWrapperDiv.appendChild(createNameDiv);
+        createNameDiv.setAttribute("class", "postName");
+
         createNameDiv.innerText = products[key].name;
         const createPostDiv = document.createElement('div');
         createWrapperDiv.appendChild(createPostDiv);
-        createPostDiv.style.border ='solid 2px black';
+        createPostDiv.setAttribute("class", "postMessage");
+
         createPostDiv.innerText = products[key].message;
         const deleteButton = document.createElement('button');
         createPostDiv.appendChild(deleteButton);
         deleteButton.setAttribute('class', 'button')
         deleteButton.innerText = 'Ta bort';
-        deleteButton.style.margin = '1rem';
+
 
         const name:HTMLInputElement = document.querySelector('#userName');
         const postOwner = products[key].name

@@ -11,13 +11,20 @@
 </head>
 
 <body>
+    <section class="header"></section>
+    <section class="navigation">
+        <a href="#" class="teamLookForPlayer">Lag söker spelare</a>
+        <a href="#" class="playerLookForTeam">Spelar söker lag</a>
+        <a href="#" class="patch">Patch åsikter</a>
+        <a href="#" id="yourInfo">Min profil</a>
+    </section>
     <!-- Login och regestrerings formulär -->
     <section id="forms">
         <form class="twoForms" id="loginForm">
             <h2>Logga in</h2>
             <input type="text" placeholder="Användarnamn" id="userName" required>
             <input type="password" placeholder="Lösenord" id="userPassword" required>
-            <button type="button" id="loginButton">LET ME IN</button>
+            <button type="button" id="loginButton">SLÄPP IN MIG</button>
             <h4 id="loginMessage"></h4>
         </form>
 
@@ -44,7 +51,7 @@
             </select>
             <input type="password" placeholder="Lösenord" id="newUserPassword" required>
             <input type="password" placeholder="Bekräfta Lösenord" id="confirmNewUserPassword" required>
-            <button type="button" id="signupButton">SIGN UP</button>
+            <button type="button" id="signupButton">SKAPA ANVÄNDARE</button>
             <h4 id="regMessage"></h4>
         </form>
     </section>
@@ -53,16 +60,9 @@
         <textarea name="addMessageToForum" id="messageToForum" rows="4" cols="50">
         <button id="sendMessageToForum">Lägg till inlägg</button>
     </section>
-    <section class="navigation">
-        <a href="#" class="teamLookForPlayer">Lag söker spelare</a>
-        <a href="#" class="playerLookForTeam">Spelar söker lag</a>
-        <a href="#" class="patch">Patch åsikter</a>
-        <a href="#" id="yourInfo">Din Bio Sida</a>
-
-    </section>
     <section id="postWrapper">
     </section>
-
+<!-- Slut på forumssidorna  -->
     <div id="bioContainer">
         <div id="UserNameAndReg">
                 <p id="userNameDiv"></p>
@@ -71,16 +71,9 @@
         <div id="imgDiv"></div>
 
         <div id="userBox">
-            <!-- <div id="userNameDiv">Username</div> -->
             <div id="bioInfo">All info från</div>
-
         </div>
-
-
     </div>
-
-
-    
 </body>
 
 </html>
