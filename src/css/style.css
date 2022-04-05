@@ -40,10 +40,28 @@ body{
 /* User Bio styling START */
 #bioContainer{
     color: white;
+    flex-wrap: wrap ;
     background-color: #1d475ba6;
     padding: 2rem;
     justify-content: center;
     margin: 2rem;
+}
+
+#bioContainer div{
+    flex: 0 50%;
+}
+
+#UserNameAndReg, #imgDiv{
+    text-align: center;
+}
+
+#userNameDiv{
+    color: #7eb4cf;
+    font-size: 22px;
+}
+
+#imgDiv img{
+    border: solid 6px #09141e;
 }
 
 #userBox{
@@ -54,11 +72,25 @@ body{
     max-width: 20rem;
 }
 
+#deleteButton{
+    background-color: #64212c;
+    border: solid transparent 5px;
+    border-radius: 100px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
 
+#deleteButton:hover{
+    background-color: #9c0909;
+    transition: all 0.4s ease-in-out;
+    filter: drop-shadow(0px 0px 8px #e45959);
+}
 
 /* SLUT User bio styling */
-
-
 /* START Styling till login och regestrerings formulär */
 
 #forms{
@@ -167,8 +199,13 @@ body{
 }
 
 /* END Styling till login och regestrerings formulär */
-
 /*Forums styling*/
+
+.yourPlace{
+    color: #7eb4cf;
+    margin: 20px 0px;
+    text-align: center;
+}
 
 .addMessageToForum{
     margin-top: 50px;
@@ -206,7 +243,6 @@ body{
     width: 98%;
     padding: 20px 20px;
     background-color: #2a6f8fa6;
-    filter: drop-shadow(0px 0px 8px #b3f2fd);
 }
 
 .postName{

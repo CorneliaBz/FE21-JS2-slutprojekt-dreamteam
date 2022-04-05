@@ -38,7 +38,6 @@ export class User {
             }            
         })
     }
-
 }
 
 //Koden för att skapa en ny User
