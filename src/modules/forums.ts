@@ -1,27 +1,36 @@
 import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
-import {hideYourInfoFunction} from "./bio"
+import {hideYourInfoFunction, showYourInfoFunction} from "./bio"
 
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
 //Döljer skrivfältet innan man gått in på forumsidorna
-const addMessageToForum = document.querySelector('#addMessageToForum') as HTMLInputElement;
+const addMessageToForum = document.querySelector('.addMessageToForum') as HTMLInputElement;
 addMessageToForum.style.display ='none';
+const yourPlace= document.querySelector('.yourPlace');
 
 //Vid klick på ett utav forum namnen så tas du till rätt forum sida
 document.querySelector('.navigation').addEventListener('click', (event) =>{
     addMessageToForum.style.display ='block';
     if((event.target as Element).className === 'playerLookForTeam'){
         dbRef = ref (db, '/Forum/topic2');
+        yourPlace.innerHTML = ('Spelare söker lag');
+        postWrapper.style.display = 'block';
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
+        yourPlace.innerHTML = ('Diskutera den senaste patchen');
+        postWrapper.style.display = 'block';
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
+        yourPlace.innerHTML = ('Lag söker spelare');
+        postWrapper.style.display = 'block';
         hideYourInfoFunction();
     }else {
-        postWrapper.style.display = ('none')
+        addMessageToForum.style.display = 'none';
+        postWrapper.style.display = 'none';
+        // showYourInfoFunction();
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{
@@ -106,21 +115,6 @@ function createDivs(products){
     }
 };
 
-document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
-    event.preventDefault();
-    const getUser = document.querySelector('#userName') as HTMLInputElement;
-    const messageToForum = document.querySelector('#messageToForum') as HTMLInputElement;
-    const messageValue = messageToForum.value;
-    const userValue = getUser.value;
-    const postToAdd = {
-        message: messageValue,
-        name: userValue
-    }
-    const newMessageKey:string = push(dbRef).key;
-    const createNewPost = {};
-    createNewPost[newMessageKey] = postToAdd;
-    update(dbRef, createNewPost); 
-})
 
 //plockar bort inlägget om inloggad namnet stämmer överens med namnet på son som skrivit inlägget
 function clickOnDeleteButton(key){
