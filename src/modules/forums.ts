@@ -25,7 +25,7 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
         yourPlace.innerHTML = ('Lag söker spelare');
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'yourInfo'){
-        addMessageToForum.style.display = ('none');
+        addMessageToForum.style.display = 'none';
         postWrapper.innerHTML = '';
         // showYourInfoFunction();
     }
