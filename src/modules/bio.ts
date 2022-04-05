@@ -39,6 +39,12 @@ const removeBtn = document.getElementById('deleteButton')
 }
 // Slut på UserBio()
 
+
+
+// Funktion för att visa allas Bio sida via forumet:
+
+
+
 //Möjlighet att komma till din egna Bio sida:
 
 function showYourInfoFunction() {

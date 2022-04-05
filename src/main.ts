@@ -3,8 +3,10 @@ import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
 import { userBio, showYourInfoFunction, hideYourInfoFunction} from "./modules/bio";
+import {showAllUsersFunction} from "./modules/allusers"
 
 createDivs();
+showAllUsersFunction();
 
 // userBio()
 console.log(db);
