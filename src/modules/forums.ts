@@ -18,11 +18,11 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
-        yourPlace.innerHTML = ('Spelare söker lag');
+        yourPlace.innerHTML = ('Patch');
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
-        yourPlace.innerHTML = ('Spelare söker lag');
+        yourPlace.innerHTML = ('Lag söker spelare');
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'yourInfo'){
         addMessageToForum.style.display = ('none');
