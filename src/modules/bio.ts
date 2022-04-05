@@ -2,14 +2,12 @@ import { db } from "./firebaseapp";
 import { ref, remove, update, push } from "firebase/database";
 import { User } from "./User";
 
-
 //Döljer Div:arna som innehåller all info i DOMen
 const bioContainer = document.getElementById('bioContainer');
 bioContainer.style.display = "none"
 
-
 //Tar fram infon från firebase och loggar i BioContainern / DOM, via User.ts
-function userBio(userName: string, passWord: string, myBio: string, myColor: string, myUserRegDate: string): void {
+function userBio(userName: string, myBio: string, myUserRegDate: string): void {
 
     const myUserBioDiv: any = document.getElementById('bioInfo')
     const regInfoDiv: any = document.getElementById('regInfo')
@@ -22,8 +20,6 @@ function userBio(userName: string, passWord: string, myBio: string, myColor: str
         ${userName}`
     userRegDate.innerHTML = `Tid för registrering: <br> ${myUserRegDate}`
     myUserBioDiv.innerHTML = 'Information om användare: ' + myBio
-    picBox.style.color = myColor
-    userBox.style.color = myColor
 
     //Edit button för att komma till updateUser funktionen
     const editBtn: any = document.getElementById('editBtn');
@@ -33,18 +29,16 @@ function userBio(userName: string, passWord: string, myBio: string, myColor: str
 
 //Möjlighet att komma till din egna Bio sida:
 
-function showYourInfoFunction(){
-                const bioContainer = document.getElementById('bioContainer');
-                bioContainer.style.display = "block";
+function showYourInfoFunction() {
+    const bioContainer = document.getElementById('bioContainer');
+    bioContainer.style.display = "block";
 
 }
 
-function hideYourInfoFunction(){
-                const bioContainer = document.getElementById('bioContainer');
-                bioContainer.style.display = "none";
+function hideYourInfoFunction() {
+    const bioContainer = document.getElementById('bioContainer');
+    bioContainer.style.display = "none";
 
 }
-
-
 
 export { userBio, showYourInfoFunction, hideYourInfoFunction }

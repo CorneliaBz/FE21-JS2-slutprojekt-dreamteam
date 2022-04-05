@@ -1,4 +1,10 @@
-/* Bennys saker */
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1d253b;
+}
+
+/* User Bio styling START */
 #bioContainer{
     display: flex;
     border: solid 2px grey;
@@ -70,14 +76,7 @@ flex-direction: column;
 #deleteUser{
     margin-top: 5rem;
 }
-/* Slut Bennys */
-
-
-
-body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1d253b;
-}
+/* SLUT User bio styling */
 
 
 /* START Styling till login och regestrerings formulär */
@@ -92,7 +91,6 @@ body{
     margin-right: -50%;
     transform: translate(-50%, -50%);
     background-color: #1d253b;
-    /* background-image: url(https://www.itl.cat/pngfile/big/151-1515561_conversation-speech-bubbles.png); */
     background-image: url(https://www.nawpic.com/media/2020/minimalist-nawpic-7.jpg);
     background-size: cover;
     opacity: 100%;
