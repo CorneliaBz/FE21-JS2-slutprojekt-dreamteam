@@ -11,13 +11,19 @@
 </head>
 
 <body>
+    <section class="navigation">
+        <a href="#" class="teamLookForPlayer">Lag söker spelare</a>
+        <a href="#" class="playerLookForTeam">Spelar söker lag</a>
+        <a href="#" class="patch">Patch åsikter</a>
+        <a href="#" id="yourInfo">Min profil</a>
+    </section>
     <!-- Login och regestrerings formulär -->
     <section id="forms">
         <form class="twoForms" id="loginForm">
             <h2>Logga in</h2>
             <input type="text" placeholder="Användarnamn" id="userName" required>
             <input type="password" placeholder="Lösenord" id="userPassword" required>
-            <button type="button" id="loginButton">LET ME IN</button>
+            <button type="button" id="loginButton">SLÄPP IN MIG</button>
             <h4 id="loginMessage"></h4>
         </form>
 
@@ -28,14 +34,14 @@
             <select name="Profilbild" id="NewIMG">
                 <option value="">Välj Profilbild</option>
                 <option value="https://imgur.com/Yov38RY.jpg">Annie</option>
-                <option value="https://imgur.com/a/QPAZZvY.jpg">Fiora</option> 
-                <option value="https://imgur.com/a/tk5nu5r.jpg">Wukong</option> 
-                <option value="https://imgur.com/a/SVzu1cE.jpg">Draven</option> 
-                <option value="https://imgur.com/a/Ew7UYAr.jpg">Ziggs</option> 
+                <option value="https://imgur.com/a/QPAZZvY.jpg">Fiora</option>
+                <option value="https://imgur.com/a/tk5nu5r.jpg">Wukong</option>
+                <option value="https://imgur.com/a/SVzu1cE.jpg">Draven</option>
+                <option value="https://imgur.com/a/Ew7UYAr.jpg">Ziggs</option>
             </select>
             <input type="password" placeholder="Lösenord" id="newUserPassword" required>
             <input type="password" placeholder="Bekräfta Lösenord" id="confirmNewUserPassword" required>
-            <button type="button" id="signupButton">SIGN UP</button>
+            <button type="button" id="signupButton">SKAPA ANVÄNDARE</button>
             <h4 id="regMessage"></h4>
         </form>
     </section>
@@ -44,13 +50,6 @@
         <textarea name="addMessageToForum" id="messageToForum" rows="4" cols="50">
         <button id="sendMessageToForum">Lägg till inlägg</button>
     </section>
-    <section class="navigation">
-        <a href="#" class="teamLookForPlayer">Lag söker spelare</a>
-        <a href="#" class="playerLookForTeam">Spelar söker lag</a>
-        <a href="#" class="patch">Patch åsikter</a>
-        <a href="#" id="yourInfo">Din Bio Sida</a>
-
-    </section>
     <section id="postWrapper">
     </section>
 
@@ -58,9 +57,6 @@
         <div id="picBox">
             <div id="UserNameAndReg">
                 <p id="userNameDiv"></p>
-                <p id="superId"></p>
-
-                <p id="userRegDate">Datum för reg</p>
             </div>
             <div id="regInfo">
                 <img src="img/bennytitle.jpg" alt="Benny">
@@ -69,16 +65,9 @@
         </div>
 
         <div id="userBox">
-            <!-- <div id="userNameDiv">Username</div> -->
             <div id="bioInfo">All info från</div>
-
         </div>
-
-
     </div>
-
-
-    
 </body>
 
 </html>

@@ -1,81 +1,58 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #1d253b;
 }
+/*START Navigation Styling*/
+.navigation{
+    background-color: #1d475b;
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
+}
 
+.navigation a{
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(204, 211, 223);
+    text-transform: uppercase;
+}
+
+.navigation a:hover{
+    /* background-color: #275970; */
+    color: white;
+    transform: translate(-20%, -20%);
+    transition: all 0.4s ease-in-out;
+    filter: drop-shadow(0px 0px 10px #f5faae);
+}
+/*SLUT Navigation Styling*/
 /* User Bio styling START */
 #bioContainer{
-    display: flex;
-    border: solid 2px grey;
+    color: white;
+    background-color: #1d475ba6;
     padding: 2rem;
     justify-content: center;
-    margin: 0;
+    margin: 2rem;
 }
 
-#bioContainer > #picBox{
-    display: inline-block;
+#picBox, #userBox {
+    width: 40%;
+    padding: 10px;
 }
 
-
-#picBox{
-    border: solid 2px grey;
-    padding: 2rem;
-    justify-content: center;
-    /* width: 40rem; */
-}
-#UserNameAndReg{
-display: flex;
-flex-direction: column;
-    border: solid 2px grey ;
-    height: 20rem;
-    width: 25rem;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    font-weight: bolder;
-    text-align: center;
-}
-#regInfo{
-    border: solid 2px grey;
-    height: 20rem;
-    width: 25rem;
-} 
 #userBox{
-    padding: 2rem;
-    border: solid 2px grey;
-    width: 30rem;
+    color: #7eb4cf;
 }
-#bioContainer > #userBox{
-    display: inline-block;
+
+#regInfo img{
+    border: #161a25 5px solid;
 }
 
 
-/* #userNameDiv{
-    border: solid 2px grey;
-    height: 10rem;
-    width: 25rem;  
-} */
-#bioInfo{
-    display: flex;
-    border: solid 2px grey;
-    height: 20rem;
-    width: 25rem;
-}
-
-#theEditButton{
-    border: solid 2px grey;
-    height: 5rem;
-    width: 25rem;
-}
-
-#editBtn{
-    height: 2rem;
-}
-
-#deleteUser{
-    margin-top: 5rem;
-}
 /* SLUT User bio styling */
 
 
@@ -91,7 +68,7 @@ flex-direction: column;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     background-color: #1d253b;
-    background-image: url(https://www.nawpic.com/media/2020/minimalist-nawpic-7.jpg);
+    background-image: url(http://lol-stats.net/uploads/FpuvHt29W2bG6KPWKQ5ybcEW63BfFf2dIWIfbwjq.jpeg);
     background-size: cover;
     opacity: 100%;
     border-radius: 20px;
@@ -103,18 +80,13 @@ flex-direction: column;
 }
 
 #forms h2{
+    margin-top: 40px;
+    margin-bottom: 20px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    color: #fdd5d6;
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #238eaf, 1px 1px 0 #238eaf;
-}
-
-#forms h4{
-    font-weight: bold;
-    text-align: center;
-    color:#e10279;
-    background: radial-gradient(circle, rgba(253,213,214,0.8) 0%, rgba(253,213,214,0) 100%);
+    color: #1d475b;
+    text-shadow: -1px -1px 0 #255d77, 1px -1px 0 #255d77, -1px 1px 0 #163646, 1px 1px 0 #163646;
 }
 
 #loginForm, #registerForm{
@@ -139,20 +111,15 @@ flex-direction: column;
 
 .twoForms input[type=text]:focus, .twoForms input[type=password]:focus, .twoForms select:focus{
     outline:none;
-    border: 3px solid #e10279;
+    border: 3px solid #f3ce95;
 }
 
 .twoForms input{
     width: 100%;
 }
 
-#img1{
-    background-color: blue;
-    color: blue;
-}
-
 .twoForms button{
-    background-color: #e10279;
+    background-color: #1d475b;
     border: solid transparent 5px;
     border-radius: 100px;
     color: white;
@@ -165,9 +132,10 @@ flex-direction: column;
 }
 
 .twoForms button:hover{
-    background-color: #35ccfa;
+    background-color: #f3ce95;
     transform: translate(-20%, -20%);
     transition: all 0.4s ease-in-out;
+    filter: drop-shadow(0px 0px 8px #fde0b3);
 }
 
 #loginButton{
@@ -190,6 +158,62 @@ flex-direction: column;
 
 /*Forums styling*/
 
-.navigation{
-    margin: 3rem;
+#addMessageToForum{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#sendMessageToForum{
+    background-color: #214f64;
+    border: solid transparent 5px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#postWrapper{
+    margin: 0rem 2rem;
+    background-color: #1d475ba6;
+    text-align: left;
+}
+
+.forumPost{
+    padding: 20px 20px;
+    border-bottom:#161a25 solid 2px;
+}
+
+.postName{
+    color:white;
+}
+
+.postMessage{
+    color: #7eb4cf;
+}
+
+.button{
+    position: absolute;
+    right: 50px;
+
+    background-color: #214f64;
+    border: solid transparent 5px;
+    border-radius: 100px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover, #sendMessageToForum:hover{
+    background-color: #f3ce95;
+    transition: all 0.4s ease-in-out;
+    filter: drop-shadow(0px 0px 8px #fde0b3);
 }

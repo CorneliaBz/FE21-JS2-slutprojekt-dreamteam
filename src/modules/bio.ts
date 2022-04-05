@@ -10,14 +10,9 @@ bioContainer.style.display = "none"
 function userBio(userName: string, myBio: string): void {
 
     const myUserBioDiv: any = document.getElementById('bioInfo')
-    const regInfoDiv: any = document.getElementById('regInfo')
-    const picBox: any = document.getElementById('picBox')
-    const userBox: any = document.getElementById('userBox')
-    const userRegDate: any = document.getElementById('userRegDate')
     const userNameDiv: any = document.getElementById('userNameDiv')
 
-    userNameDiv.innerHTML = `Användarnamn: <br>
-        ${userName}`
+    userNameDiv.innerHTML = `Användarnamn: ${userName}`
     myUserBioDiv.innerHTML = 'Information om användare: ' + myBio
 
     //Edit button för att komma till updateUser funktionen
@@ -30,7 +25,7 @@ function userBio(userName: string, myBio: string): void {
 
 function showYourInfoFunction() {
     const bioContainer = document.getElementById('bioContainer');
-    bioContainer.style.display = "block";
+    bioContainer.style.display = "flex";
 
 }
 
