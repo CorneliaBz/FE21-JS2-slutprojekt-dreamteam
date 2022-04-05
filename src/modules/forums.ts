@@ -83,20 +83,23 @@ function createDivs(products){
     for(const key in products){
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
-        createWrapperDiv.style.border ='solid 2px black';
-        createWrapperDiv.style.padding = '2rem';
+        createWrapperDiv.setAttribute("class", "forumPost");
+
         const createNameDiv = document.createElement('div');
         createWrapperDiv.appendChild(createNameDiv);
+        createNameDiv.setAttribute("class", "postName");
+
         createNameDiv.innerText = products[key].name;
         const createPostDiv = document.createElement('div');
         createWrapperDiv.appendChild(createPostDiv);
-        createPostDiv.style.border ='solid 2px black';
+        createPostDiv.setAttribute("class", "postMessage");
+
         createPostDiv.innerText = products[key].message;
         const deleteButton = document.createElement('button');
         createPostDiv.appendChild(deleteButton);
         deleteButton.setAttribute('class', 'button')
         deleteButton.innerText = 'Ta bort';
-        deleteButton.style.margin = '1rem';
+
 
         const name:HTMLInputElement = document.querySelector('#userName');
         const postOwner = products[key].name
