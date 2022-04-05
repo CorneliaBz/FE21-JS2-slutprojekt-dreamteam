@@ -27,7 +27,7 @@ export function showAllUsersFunction(allUsers) {
             alluserP.innerText = userNames[i].name;
 
             const thisUser = document.getElementById('p'+[i]);
-            thisUser.setAttribute('href',showUserBio )
+            // thisUser.setAttribute('href',showUserBio )
             // userNameList.setAttribute('href', showUserBio )
             userContainer.appendChild(alluserP)}
 
