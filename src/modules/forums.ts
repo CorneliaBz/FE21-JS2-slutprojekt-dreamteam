@@ -1,6 +1,7 @@
 import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
 import {hideYourInfoFunction} from "./bio"
+import { User } from "./User";
 
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
@@ -10,18 +11,24 @@ addMessageToForum.style.display ='none';
 
 //Vid klick på ett utav forum namnen så tas du till rätt forum sida
 document.querySelector('.navigation').addEventListener('click', (event) =>{
+    const yourPlace =document.querySelector('.yourPlace');
     addMessageToForum.style.display ='block';
+    
     if((event.target as Element).className === 'playerLookForTeam'){
         dbRef = ref (db, '/Forum/topic2');
+        yourPlace.innerHTML = ('Spelare söker lag');
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
+        yourPlace.innerHTML = ('Fria åsikter om den senaste patchen');
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
+        yourPlace.innerHTML = ('Lag söker spelare');
         hideYourInfoFunction();
     }else {
         postWrapper.style.display = ('none')
+        addMessageToForum.style.display ='none';
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{

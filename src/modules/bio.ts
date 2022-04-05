@@ -2,6 +2,7 @@ import { db } from "./firebaseapp";
 import { ref, remove, update, push } from "firebase/database";
 import { User } from "./User";
 
+
 //Döljer Div:arna som innehåller all info i DOMen
 const bioContainer = document.getElementById('bioContainer');
 bioContainer.style.display = "none"
@@ -19,9 +20,10 @@ function userBio(userName: string, myBio: string): void {
     userNameDiv.innerHTML = `Användarnamn: <br>
         ${userName}`
     myUserBioDiv.innerHTML = 'Information om användare: ' + myBio
-
+    
     //Edit button för att komma till updateUser funktionen
     const editBtn: any = document.getElementById('editBtn');
+
 
 }
 // Slut på UserBio()

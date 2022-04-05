@@ -11,6 +11,10 @@ export class User {
         public readonly password: string,
     ) {
         this.checkUser();
+        console.log(this.name)
+        const userBox = document.createElement('p');
+        document.body.append(userBox);
+        userBox.innerText = this.name;
     }
     //Check if user exsist and password is correct
     public checkUser(): any {
