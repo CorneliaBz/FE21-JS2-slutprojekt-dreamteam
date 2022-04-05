@@ -274,9 +274,38 @@ body{
     filter: drop-shadow(0px 0px 8px #fde0b3);
 }
 
-
-
 #anyUserContainer, #showUserBio{
     color: white;
-    border: solid white 2px;
+    border: solid #09141e 2px;
+    background-color: #0d1c2b;
+    text-align: center;
+}
+
+#anyUserContainer{
+    margin-top: 50px;
+}
+
+#anyUserContainer button{
+    background-color: #214f64;
+    border: solid #0b1a22 2px;
+    padding: 5px;
+    margin: 5px 2px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#anyUserContainer button:hover{
+    background-color: #3c7d9b;
+    transition: all 0.4s ease-in-out;
+    filter: drop-shadow(0px 0px 8px #3c7d9b);
+    border: solid transparent 2px;
+}
+
+#showUserBio img{
+    width: 20%;
+    border: solid 4px #09141e;
 }
