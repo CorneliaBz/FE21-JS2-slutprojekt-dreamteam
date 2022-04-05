@@ -2,7 +2,7 @@ import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
-import { userBio, updateUser, changeIt } from "./modules/bio";
+import { userBio} from "./modules/bio";
 
 // createDivs();
 
@@ -36,5 +36,3 @@ onValue(dbRef, snapshot => {
         createUser(userData);
     })
 });
-const theEditBtn = document.getElementById('editButton');
-theEditBtn.addEventListener('click', changeIt)  

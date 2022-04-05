@@ -32,7 +32,6 @@ export class User {
                 const bioContainer = document.getElementById('bioContainer');
                 bioContainer.style.display = "block";
                 userBio(this.name, this.password, this.bio, this.color, this.theTime);
-                updateUser(this.name, this.id, this.password, this.bio, this.color, this.theTime, this.theImage)
                     console.log()
                 // function userBio(userName:string, passWord:string, myBio:string, myColor:string, myUserRegDate:string):void {
 
