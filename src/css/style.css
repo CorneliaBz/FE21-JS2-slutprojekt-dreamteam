@@ -1,3 +1,79 @@
+/* Bennys saker */
+#bioContainer{
+    display: flex;
+    border: solid 2px grey;
+    padding: 2rem;
+    justify-content: center;
+    margin: 0;
+}
+
+#bioContainer > #picBox{
+    display: inline-block;
+}
+
+
+#picBox{
+    border: solid 2px grey;
+    padding: 2rem;
+    justify-content: center;
+    /* width: 40rem; */
+}
+#UserNameAndReg{
+display: flex;
+flex-direction: column;
+    border: solid 2px grey ;
+    height: 20rem;
+    width: 25rem;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bolder;
+    text-align: center;
+}
+#regInfo{
+    border: solid 2px grey;
+    height: 20rem;
+    width: 25rem;
+} 
+#userBox{
+    padding: 2rem;
+    border: solid 2px grey;
+    width: 30rem;
+}
+#bioContainer > #userBox{
+    display: inline-block;
+}
+
+
+/* #userNameDiv{
+    border: solid 2px grey;
+    height: 10rem;
+    width: 25rem;  
+} */
+#bioInfo{
+    display: flex;
+    border: solid 2px grey;
+    height: 20rem;
+    width: 25rem;
+}
+
+#theEditButton{
+    border: solid 2px grey;
+    height: 5rem;
+    width: 25rem;
+}
+
+#editBtn{
+    height: 2rem;
+}
+
+#deleteUser{
+    margin-top: 5rem;
+}
+/* Slut Bennys */
+
+
+
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #1d253b;

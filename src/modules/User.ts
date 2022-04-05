@@ -1,4 +1,5 @@
 import { db } from "./firebaseapp";
+import { userBio } from "./bio";
 import { ref, remove, update, push, DatabaseReference } from "firebase/database";
 
 export class User {
@@ -8,13 +9,14 @@ export class User {
         public readonly img: string,
         public readonly name: string,
         public readonly password: string,
-
+        public readonly theTime: string,
     ) {
         this.checkUser();
     }
     //Check if user exsist and password is correct
     public checkUser(): any {
         document.querySelector('#loginButton').addEventListener('click', e => {
+
             e.preventDefault();
             const name: HTMLInputElement = document.querySelector('#userName');
             const password: HTMLInputElement = document.querySelector('#userPassword');
@@ -24,18 +26,20 @@ export class User {
             console.log(name.value, password.value)
             if (this.name === name.value && this.password === password.value) {
                 const forms: HTMLDivElement = document.querySelector('#forms');
+                
                 forms.style.display = 'none';
-                loginMessage.innerText = 'Välkommen in';
+                userBio(this.name, this.bio, this.theTime);
+    
             } else if (this.name != name.value && this.password == password.value) {
                 loginMessage.innerText = 'Fel användarnamn';
             } else if (this.name === name.value && this.password != password.value) {
                 loginMessage.innerText = 'Fel lösenord';
             } else if (this.name != name.value && this.password != password.value) {
                 loginMessage.innerText = 'Användaren finns inte';
-            }
+            }            
         })
     }
-    
+
 }
 
 //Koden för att skapa en ny User

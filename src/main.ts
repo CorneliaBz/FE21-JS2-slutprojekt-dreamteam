@@ -2,9 +2,11 @@ import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
+import { userBio, showYourInfoFunction, hideYourInfoFunction} from "./modules/bio";
 
 createDivs();
 
+// userBio()
 console.log(db);
 const dbRef = ref(db, '/User');
 let user: User[] = [];
@@ -22,6 +24,9 @@ onValue(dbRef, snapshot => {
             userData[key].img,
             userData[key].name,
             userData[key].password,
+            userData[key].theTime,
+            userData[key].theImage
+
         ))
     }
 
@@ -31,3 +36,6 @@ onValue(dbRef, snapshot => {
         createUser(userData);
     })
 });
+
+const yourInfoBtn = document.getElementById('yourInfo');
+yourInfoBtn.addEventListener('click',  showYourInfoFunction)

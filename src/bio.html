@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.ts" type="module"> </script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>User Bio Side</title>
+</head>
+<body>
+    <a href="/src/index.html">hemlänk</a>
+
+<div id="bioContainer">
+    <div id="picBox">
+        <div id="image">
+            <img src="/src/img/lina.jfif" alt="">
+        </div>
+        <div id="regInfo">Reg datum och Antal posts</div>
+    </div>
+
+    <div id="userBox">
+        <div id="userName">Username</div>
+        <div id="bioInfo">All info från Bio
+            <p><button id="editBtn">Edit knapp</button>
+            </p>
+        </div> 
+    </div>
+</div>
+
+
+<section id="forms">
+    <form id="loginForm">
+        <input type="text" placeholder="name" id="userName">
+        <input type="password" placeholder="password" id="userPassword">
+        <button type="button" id="loginButton">LET ME IN</button>
+    </form>
+
+    <form id="registerForm">
+        <input type="text" placeholder="name" id="newUserName">
+        <input type="password" placeholder="password" id="newUserPassword">
+        <input type="password" placeholder="password" id="confirmNewUserPassword">
+        <button type="button" id="signupButton">SIGN UP</button>
+    </form>
+    <h4 id="loginMessage"></h2>
+</section>
+
+
+</body>
+</html>
