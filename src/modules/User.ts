@@ -49,7 +49,7 @@ export function createUser(userData): any {
     const bio: HTMLInputElement = document.querySelector('#newBio');
     const password: HTMLInputElement = document.querySelector('#newUserPassword');
     const confirmPassword: HTMLInputElement = document.querySelector('#confirmNewUserPassword');
-    const image: HTMLInputElement = document.querySelector('#newImg');
+    const image: HTMLInputElement = document.querySelector('#NewIMG');
     
     //Felmeddelande
     const regMessage: HTMLHeadElement = document.querySelector('#regMessage');
@@ -60,7 +60,7 @@ export function createUser(userData): any {
     let addUser: boolean = true;
 
     const dbRef: DatabaseReference = ref(db, '/User');
-    console.log(image.value, image.placeholder);
+
     for(const userName of userNames){
         //Kollar om newUsername finns i databasen databasen som userName.name. 
         //Om namnet redan finns kan vi inte skapa användare då addUser = false.
