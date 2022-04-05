@@ -18,12 +18,23 @@ export function showAllUsersFunction(allUsers) {
         console.log(userNames[0].bio)
 
         const userContainer: any = document.getElementById('anyUserContainer')
+        const showUserBio: any = document.getElementById('showUserBio')
 
         for (let i=0; i<userNames.length; i++){
-            let alluserP: HTMLParagraphElement = document.createElement('p');
-            alluserP.innerText = userNames[i].name + 'Bennyyyy';
+            let alluserP: any = document.createElement('p');
+            alluserP.setAttribute('id', 'p'+[i])
+            const userNameList:any = userNames[i].name
+            alluserP.innerText = userNames[i].name;
+
+            const thisUser = document.getElementById('p'+[i]);
+            thisUser.setAttribute('href',showUserBio )
+            // userNameList.setAttribute('href', showUserBio )
             userContainer.appendChild(alluserP)}
+
+
+
     })
+
 }
 //     user = [];
 //     for (const key in userData) {
