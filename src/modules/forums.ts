@@ -1,10 +1,13 @@
 import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
 
+// Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
+//Döljer skrivfältet innan man gått in på forumsidorna
 const addMessageToForum = document.querySelector('#addMessageToForum') as HTMLInputElement;
 addMessageToForum.style.display ='none';
 
+//Vid klick på ett utav forum namnen så tas du till rätt forum sida
 document.querySelector('.navigation').addEventListener('click', (event) =>{
     addMessageToForum.style.display ='block';
     if((event.target as Element).className === 'playerLookForTeam'){
@@ -14,11 +17,10 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
     }
+    //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{
         console.log('snap', snapshot.val(), 'db', dbRef);
-        
         const postData = snapshot.val();
-    
         newPost = [];
         for(const key in postData){
             newPost.unshift(new Posts(
@@ -27,12 +29,11 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
                 postData[key].name
             ))
         }
-        
-    console.log(newPost);
     createDivs(newPost);
     });
 })
 
+//För att skapa ett inlägg till databasen behövs en class med constructor
 class Posts{
     constructor(
         public readonly id: string,
@@ -42,9 +43,10 @@ class Posts{
 
     }
 }
-
+//Skickar in det nya inlägget i en array
 let newPost:Posts[] = [];
 
+//plockar bort inlägget om inloggad namnet stämmer överens med namnet på son som skrivit inlägget
 function clickOnDeleteButton(key){
     console.log('key', key);
     const name:HTMLInputElement = document.querySelector('#userName');
@@ -62,6 +64,7 @@ function clickOnDeleteButton(key){
 }
 
 const postWrapper = document.querySelector('#postWrapper');
+//Skapar alla element utefter vad som finns i databasen
 function createDivs(products){
     postWrapper.innerHTML = '';
     for(const key in products){
@@ -94,6 +97,7 @@ function createDivs(products){
     }
 };
 
+//På klick läggs det man skrivit i input in på forumet man står på och lägger till namnet på den som är inloggad
 document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
     event.preventDefault();
     const getUser = document.querySelector('#userName') as HTMLInputElement;
