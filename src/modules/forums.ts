@@ -15,20 +15,24 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
     addMessageToForum.style.display ='block';
     
     if((event.target as Element).className === 'playerLookForTeam'){
+        addMessageToForum.style.display ='block';
         dbRef = ref (db, '/Forum/topic2');
         yourPlace.innerHTML = ('Spelare söker lag');
+        
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'patch'){
         dbRef = ref (db, '/Forum/topic3');
         yourPlace.innerHTML = ('Fria åsikter om den senaste patchen');
+        addMessageToForum.style.display ='block';
         hideYourInfoFunction();
     }else if((event.target as Element).className === 'teamLookForPlayer'){
         dbRef = ref (db, '/Forum/topic1');
         yourPlace.innerHTML = ('Lag söker spelare');
+        addMessageToForum.style.display ='block';
         hideYourInfoFunction();
     }else {
-        postWrapper.style.display = ('none')
-        addMessageToForum.style.display ='none';
+        postWrapper.style.display = 'none';
+        addMessageToForum.style.display = 'none';
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{
