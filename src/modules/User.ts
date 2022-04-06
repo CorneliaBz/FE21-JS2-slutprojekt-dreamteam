@@ -1,6 +1,6 @@
 import { db } from "./firebaseapp";
 import { userBio } from "./bio";
-import { ref, remove, update, push, DatabaseReference } from "firebase/database";
+import { ref, update, push, DatabaseReference } from "firebase/database";
 
 export class User {
     constructor(

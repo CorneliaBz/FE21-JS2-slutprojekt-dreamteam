@@ -1,6 +1,6 @@
 import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
-import {hideYourInfoFunction, showYourInfoFunction} from "./bio"
+import {hideYourInfoFunction} from "./bio"
 
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
@@ -30,7 +30,6 @@ document.querySelector('.navigation').addEventListener('click', (event) =>{
     }else {
         addMessageToForum.style.display = 'none';
         postWrapper.style.display = 'none';
-        // showYourInfoFunction();
     }
     //Lägger innehållet i databasen i en array för att lättare kunna hantera den
     onValue(dbRef, snapshot=>{

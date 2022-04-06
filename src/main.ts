@@ -1,8 +1,8 @@
-import { onValue, ref, push, update, remove } from "firebase/database";
+import { onValue, ref} from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
-import { userBio, showYourInfoFunction, hideYourInfoFunction} from "./modules/bio";
+import { showYourInfoFunction} from "./modules/bio";
 import {showAllUsersFunction} from "./modules/allusers"
 
 createDivs();
@@ -28,7 +28,6 @@ onValue(dbRef, snapshot => {
             userData[key].password,
         ))
     }
-
     //Knapp som kallar på createUser() från ./modules/User;
     document.querySelector('#signupButton').addEventListener('click', e => {
         e.preventDefault();
