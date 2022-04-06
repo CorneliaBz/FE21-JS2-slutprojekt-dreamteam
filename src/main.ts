@@ -5,6 +5,7 @@ import { createDivs } from "./modules/forums";
 import { showYourInfoFunction} from "./modules/bio";
 import {showAllUsersFunction} from "./modules/allusers"
 
+//Kallar på funktionen för att skapa alla forum element baserat på infon i databasen
 createDivs();
 
 //Kallar på funktionen för att ta ta fram alla användares profiler
