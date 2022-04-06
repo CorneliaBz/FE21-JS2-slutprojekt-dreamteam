@@ -6,10 +6,10 @@ import { userBio, showYourInfoFunction, hideYourInfoFunction} from "./modules/bi
 import {showAllUsersFunction} from "./modules/allusers"
 
 createDivs();
+
+//Kallar på funktionen för att ta ta fram alla användares profiler
 showAllUsersFunction();
 
-// userBio()
-console.log(db);
 const dbRef = ref(db, '/User');
 let user: User[] = [];
 let userData;
@@ -36,5 +36,6 @@ onValue(dbRef, snapshot => {
     })
 });
 
+//Knapp för att visa profilsidan
 const yourInfoBtn = document.getElementById('yourInfo');
 yourInfoBtn.addEventListener('click',  showYourInfoFunction)
