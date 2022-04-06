@@ -2,7 +2,7 @@ import { onValue, ref, push, update, remove } from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { createDivs } from "./modules/forums";
-import { userBio, showYourInfoFunction, hideYourInfoFunction} from "./modules/bio";
+import { userBio, showYourInfoFunction} from "./modules/bio";
 import {showAllUsersFunction} from "./modules/allusers"
 
 createDivs();
@@ -37,4 +37,10 @@ onValue(dbRef, snapshot => {
 });
 
 const yourInfoBtn = document.getElementById('yourInfo');
-yourInfoBtn.addEventListener('click',  showYourInfoFunction)
+yourInfoBtn.addEventListener('click',  showYourInfoFunction);
+
+
+const logOut = document.getElementById('logOut');
+logOut.addEventListener('click', () =>{
+    location.reload()
+});
