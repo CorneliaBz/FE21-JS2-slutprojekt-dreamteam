@@ -1,4 +1,4 @@
-# FE21-JS2-slutprojekt-dreamteam-
+# FE21-JS2-slutprojekt-dreamteam
 Vårt projekt är ett forum för gamers som vill hitta lag att spela med och är även en plats där de kan diskutera updates kring deras spel.
 
 Lina hade ansvar för forum, att varje inlägg visas i ordning samt att det går alla lägga till ett nytt inlägg, samt ta bort sina egna inlägg från databasen.
