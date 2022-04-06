@@ -12,7 +12,7 @@ export class User {
     ) {
         this.checkUser();
     }
-    //Check if user exsist and password is correct
+    //Kollar om användaren finns i databasen och om lösenordet stämmer
     public checkUser(): any {
         document.querySelector('#loginButton').addEventListener('click', e => {
 
@@ -52,7 +52,7 @@ export function createUser(userData): any {
     //Felmeddelande
     const regMessage: HTMLHeadElement = document.querySelector('#regMessage');
     //Variabler som ska jämföras med varandra
-    const newUsername = name.value;
+    const newUsername: string = name.value;
     const userNames:User[] = Object.values(userData);
     
     let addUser: boolean = true;

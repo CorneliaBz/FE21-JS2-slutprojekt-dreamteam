@@ -20,6 +20,8 @@ export function showAllUsersFunction(allUsers) {
         const userContainer: any = document.getElementById('anyUserContainer')
         const showUserBio: any = document.getElementById('showUserBio')
 
+        userContainer.innerText = "";
+
         for (let i = 0; i < userNames.length; i++) {
             let alluserBtn: any = document.createElement('button');
             alluserBtn.setAttribute('id', 'btn' + [i])
@@ -32,6 +34,7 @@ export function showAllUsersFunction(allUsers) {
             const specificUersBtn:any = document.getElementById('btn'+[i])
             console.log(specificUersBtn)
             console.log(typeof specificUersBtn)
+
 
             specificUersBtn.addEventListener('click', ()=>{
                 const showNameP = document.getElementById('showNameP');
