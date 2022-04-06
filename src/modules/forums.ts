@@ -2,6 +2,10 @@ import {db} from "./firebaseApp";
 import { onValue, push, ref, update, remove } from "firebase/database";
 import {hideYourInfoFunction} from "./bio"
 
+export function init(){
+    console.log('init');
+}
+
 // Hämtar databasen med forum och lägger sen i en variabel
 let dbRef = ref (db, '/Forum/topic1');
 //Döljer skrivfältet innan man gått in på forumsidorna
@@ -12,6 +16,7 @@ const yourPlace= document.querySelector('.yourPlace');
 //Vid klick på ett utav forum namnen så tas du till rätt forum sida
 document.querySelector('.navigation').addEventListener('click', (event) =>{
     addMessageToForum.style.display ='block';
+
     if((event.target as Element).className === 'playerLookForTeam'){
         dbRef = ref (db, '/Forum/topic2');
         yourPlace.innerHTML = ('Spelare söker lag');
@@ -80,8 +85,10 @@ document.querySelector('#sendMessageToForum').addEventListener('click', event=>{
 const postWrapper = document.querySelector('#postWrapper') as HTMLInputElement;
 //Skapar alla element utefter vad som finns i databasen
 function createDivs(products){
+    console.log('in createDivs');
     postWrapper.innerHTML = '';
     for(const key in products){
+        console.log('in createDFivs for loop');
         const createWrapperDiv = document.createElement('div');
         postWrapper.append(createWrapperDiv);
         createWrapperDiv.setAttribute("class", "forumPost");

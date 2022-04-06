@@ -1,12 +1,12 @@
 import { onValue, ref} from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
-import { createDivs } from "./modules/forums";
+import { init } from "./modules/forums";
 import { showYourInfoFunction} from "./modules/bio";
 import {showAllUsersFunction} from "./modules/allusers"
 
-//Kallar på funktionen för att skapa alla forum element baserat på infon i databasen
-createDivs();
+//Länkar forum.ts till main.ts
+init();
 
 //Kallar på funktionen för att ta ta fram alla användares profiler
 showAllUsersFunction();

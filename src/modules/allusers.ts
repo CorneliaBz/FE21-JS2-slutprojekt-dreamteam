@@ -5,7 +5,7 @@ import { User } from "./User";
 
 
 //Funktion för att visa alla användare och deras Bio
-export function showAllUsersFunction(allUsers) {
+export function showAllUsersFunction() {
     const dbRef = ref(db, '/User');
     let user: User[] = [];
     let userData;
@@ -16,14 +16,12 @@ export function showAllUsersFunction(allUsers) {
         const userNames: User[] = Object.values(userData);
 
         const userContainer: HTMLElement = document.getElementById('anyUserContainer');
-        const showUserBio: HTMLElement = document.getElementById('showUserBio');
 
         userContainer.innerText = "";
 
         for (let i = 0; i < userNames.length; i++) {
             let alluserBtn: HTMLButtonElement = document.createElement('button');
             alluserBtn.setAttribute('id', 'btn' + [i]);
-            const userNameList: Object = userNames[i].name;
             alluserBtn.innerText = userNames[i].name;
 
             userContainer.appendChild(alluserBtn);
