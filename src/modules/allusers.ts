@@ -5,7 +5,7 @@ import { User } from "./User";
 
 
 //Funktion för att visa alla användare och deras Bio
-export function showAllUsersFunction() {
+export function showAllUsersFunction():void {
     const dbRef: DatabaseReference = ref(db, '/User');
     let userData: any;
 
@@ -25,13 +25,13 @@ export function showAllUsersFunction() {
 
             userContainer.appendChild(alluserBtn);
 
-            const specificUersBtn:HTMLElement = document.getElementById('btn'+[i]);
+            const specificUersBtn: HTMLElement = document.getElementById('btn'+[i]);
 
 
             specificUersBtn.addEventListener('click', ()=>{
-                const showNameP:HTMLElement = document.getElementById('showNameP');
+                const showNameP: HTMLElement = document.getElementById('showNameP');
                 const showImgP: HTMLImageElement = document.querySelector('#showImgP');
-                const showBioP:HTMLElement = document.getElementById ('showBioP');
+                const showBioP: HTMLElement = document.getElementById ('showBioP');
                 showNameP.innerHTML = userNames[i].name;
                 showImgP.src = userNames[i].img;
                 showBioP.innerHTML = userNames[i].bio;
