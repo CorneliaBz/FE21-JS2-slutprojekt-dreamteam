@@ -1,12 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { FirebaseApp, initializeApp } from "firebase/app";
+import { Database, getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+const firebaseConfig: object = {
   apiKey: "AIzaSyC3rUxTS6iPrkSzr9GBobGD1dHzaPozg4k",
   authDomain: "dreamteamforum.firebaseapp.com",
   databaseURL: "https://dreamteamforum-default-rtdb.europe-west1.firebasedatabase.app",
@@ -17,5 +14,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const db = getDatabase(app);
+const app: FirebaseApp = initializeApp(firebaseConfig);
+export const db: Database = getDatabase(app);
