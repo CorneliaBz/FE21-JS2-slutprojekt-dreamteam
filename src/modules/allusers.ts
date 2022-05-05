@@ -1,14 +1,13 @@
 
-import { onValue, ref} from "firebase/database";
+import { DatabaseReference, onValue, ref} from "firebase/database";
 import { db } from "./firebaseapp";
 import { User } from "./User";
 
 
 //Funktion för att visa alla användare och deras Bio
 export function showAllUsersFunction() {
-    const dbRef = ref(db, '/User');
-    let user: User[] = [];
-    let userData;
+    const dbRef: DatabaseReference = ref(db, '/User');
+    let userData: any;
 
     onValue(dbRef, snapshot => {
         userData = snapshot.val();

@@ -13,7 +13,7 @@ export class User {
         this.checkUser();
     }
     //Kollar om användaren finns i databasen och om lösenordet stämmer
-    public checkUser(): any {
+    public checkUser(): void {
         document.querySelector('#loginButton').addEventListener('click', e => {
 
             e.preventDefault();
@@ -41,7 +41,7 @@ export class User {
 }
 
 //Koden för att skapa en ny User
-export function createUser(userData): any {
+export function createUser(userData): void {
     //Hämtar inputElement
     const name: HTMLInputElement = document.querySelector('#newUserName');
     const bio: HTMLInputElement = document.querySelector('#newBio');
@@ -72,7 +72,7 @@ export function createUser(userData): any {
     //Om newUsername och userName.name inte är samma skapas en ny användare.
     //Här kollas även om lösenordet matchar varandra.
     if(addUser && password.value == confirmPassword.value){
-        const UserToAdd = {
+        const UserToAdd: object = {
             bio: bio.value,
             img: image.value,
             name: name.value,
@@ -80,13 +80,13 @@ export function createUser(userData): any {
         }
 
         const newKey: string = push(dbRef).key;
-        const newUser = {};
+        const newUser: object = {};
         newUser[newKey] = UserToAdd;
 
         update(dbRef, newUser);
         regMessage.innerText = 'Ny användare skapad, du kan logga in';
     //Felmeddelande ifall lösenorden inte är samma.
     }else if(addUser && password.value != confirmPassword.value){
-        regMessage.innerText = 'Password not matching';
+        regMessage.innerText = 'Lösenorden matchar ej';
     }
 }
