@@ -1,4 +1,4 @@
-import { onValue, ref} from "firebase/database";
+import { DatabaseReference, onValue, ref} from "firebase/database";
 import { db } from "./modules/firebaseapp";
 import { User, createUser } from "./modules/User";
 import { init } from "./modules/forums";
@@ -11,9 +11,9 @@ init();
 //Kallar på funktionen för att ta ta fram alla användares profiler
 showAllUsersFunction();
 
-const dbRef = ref(db, '/User');
+const dbRef:DatabaseReference = ref(db, '/User');
 let user: User[] = [];
-let userData;
+let userData:any;
 
 onValue(dbRef, snapshot => {
     userData = snapshot.val();
@@ -37,5 +37,5 @@ onValue(dbRef, snapshot => {
 });
 
 //Knapp för att visa profilsidan
-const yourInfoBtn = document.getElementById('yourInfo');
+const yourInfoBtn:HTMLElement = document.getElementById('yourInfo');
 yourInfoBtn.addEventListener('click',  showYourInfoFunction)
